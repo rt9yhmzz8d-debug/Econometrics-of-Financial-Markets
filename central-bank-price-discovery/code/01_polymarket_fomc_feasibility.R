@@ -352,3 +352,322 @@ head(
     ),
   20
 )
+
+# ============================================================
+# 11. DIAGNOSE MISSING OUTCOME OBSERVATIONS
+# ============================================================
+
+# Count missing observations for each outcome series
+missing_summary <- pm_wide |>
+  summarise(
+    missing_no_change =
+      sum(is.na(`No change`)),
+    
+    missing_25_increase =
+      sum(is.na(`25 bps increase`)),
+    
+    missing_25_decrease =
+      sum(is.na(`25 bps decrease`)),
+    
+    missing_50_increase =
+      sum(is.na(`50+ bps increase`)),
+    
+    missing_50_decrease =
+      sum(is.na(`50+ bps decrease`))
+  )
+
+print(missing_summary)
+
+
+# Identify every 15-minute interval for which
+# at least one outcome price is unavailable
+missing_intervals <- pm_wide |>
+  filter(
+    is.na(`No change`) |
+      is.na(`25 bps increase`) |
+      is.na(`25 bps decrease`) |
+      is.na(`50+ bps increase`) |
+      is.na(`50+ bps decrease`)
+  )
+
+print(missing_intervals)
+
+# Number of complete and incomplete 15-minute intervals
+pm_wide |>
+  summarise(
+    total_intervals = n(),
+    
+    complete_intervals = sum(
+      complete.cases(
+        `No change`,
+        `25 bps increase`,
+        `25 bps decrease`,
+        `50+ bps increase`,
+        `50+ bps decrease`
+      )
+    ),
+    
+    incomplete_intervals =
+      total_intervals - complete_intervals
+  )
+
+# ============================================================
+# 12. INSPECT PATTERN OF MISSING OBSERVATIONS
+# ============================================================
+
+# Show which outcomes are missing in each incomplete interval
+missing_pattern <- pm_wide |>
+  filter(
+    !complete.cases(
+      `No change`,
+      `25 bps increase`,
+      `25 bps decrease`,
+      `50+ bps increase`,
+      `50+ bps decrease`
+    )
+  ) |>
+  mutate(
+    missing_no_change =
+      is.na(`No change`),
+    
+    missing_25_increase =
+      is.na(`25 bps increase`),
+    
+    missing_25_decrease =
+      is.na(`25 bps decrease`),
+    
+    missing_50_increase =
+      is.na(`50+ bps increase`),
+    
+    missing_50_decrease =
+      is.na(`50+ bps decrease`)
+  ) |>
+  select(
+    datetime_15,
+    starts_with("missing_")
+  )
+
+print(
+  missing_pattern,
+  n = Inf
+)
+
+# ============================================================
+# 13. MEASURE LENGTH OF MISSING RUNS
+# ============================================================
+
+# Create indicators for missing observations
+gap_check <- pm_wide |>
+  arrange(datetime_15) |>
+  mutate(
+    miss_no_change = is.na(`No change`),
+    miss_50_increase = is.na(`50+ bps increase`),
+    miss_50_decrease = is.na(`50+ bps decrease`)
+  )
+
+
+# Helper function to calculate consecutive runs of TRUE/FALSE
+run_summary <- function(x) {
+  
+  r <- rle(x)
+  
+  data.frame(
+    missing = r$values,
+    run_length = r$lengths
+  ) |>
+    filter(missing == TRUE)
+}
+
+
+# Missing-run lengths for each affected outcome
+no_change_runs <- run_summary(
+  gap_check$miss_no_change
+)
+
+increase_50_runs <- run_summary(
+  gap_check$miss_50_increase
+)
+
+decrease_50_runs <- run_summary(
+  gap_check$miss_50_decrease
+)
+
+
+print(no_change_runs)
+print(increase_50_runs)
+print(decrease_50_runs)
+
+
+# Maximum number of consecutive missing 15-minute intervals
+cat(
+  "Maximum consecutive missing intervals - No change:",
+  max(no_change_runs$run_length),
+  "\n"
+)
+
+cat(
+  "Maximum consecutive missing intervals - 50+ increase:",
+  max(increase_50_runs$run_length),
+  "\n"
+)
+
+cat(
+  "Maximum consecutive missing intervals - 50+ decrease:",
+  max(decrease_50_runs$run_length),
+  "\n"
+)
+
+# ============================================================
+# 14. SAVE FEASIBILITY TEST OUTPUTS
+# ============================================================
+
+output_dir <- "/Users/gregcunningham/Desktop/ECMT3150 - Group 9 - Feasibility on PolyMarket"
+
+dir.create(
+  output_dir,
+  recursive = TRUE,
+  showWarnings = FALSE
+)
+
+# Raw Polymarket API data
+write.csv(
+  pm_raw,
+  file.path(
+    output_dir,
+    "01_polymarket_raw_data.csv"
+  ),
+  row.names = FALSE
+)
+
+# 15-minute aligned outcome data
+write.csv(
+  pm_wide,
+  file.path(
+    output_dir,
+    "02_polymarket_15min_aligned.csv"
+  ),
+  row.names = FALSE
+)
+
+# Feasibility summary by outcome
+write.csv(
+  feasibility_summary,
+  file.path(
+    output_dir,
+    "03_feasibility_summary.csv"
+  ),
+  row.names = FALSE
+)
+
+# Missing-data summary
+write.csv(
+  missing_summary,
+  file.path(
+    output_dir,
+    "04_missing_data_summary.csv"
+  ),
+  row.names = FALSE
+)
+
+# Individual incomplete timestamps
+write.csv(
+  missing_intervals,
+  file.path(
+    output_dir,
+    "05_missing_intervals.csv"
+  ),
+  row.names = FALSE
+)
+
+# Missing-data pattern
+write.csv(
+  missing_pattern,
+  file.path(
+    output_dir,
+    "06_missing_pattern.csv"
+  ),
+  row.names = FALSE
+)
+
+# Consecutive missing-run lengths
+write.csv(
+  no_change_runs,
+  file.path(
+    output_dir,
+    "07_missing_runs_no_change.csv"
+  ),
+  row.names = FALSE
+)
+
+write.csv(
+  increase_50_runs,
+  file.path(
+    output_dir,
+    "08_missing_runs_50bp_increase.csv"
+  ),
+  row.names = FALSE
+)
+
+write.csv(
+  decrease_50_runs,
+  file.path(
+    output_dir,
+    "09_missing_runs_50bp_decrease.csv"
+  ),
+  row.names = FALSE
+)
+
+message(
+  "All feasibility outputs saved to: ",
+  output_dir
+)
+
+# ============================================================
+# 14. PLOT FOMC OUTCOME PROBABILITIES
+# ============================================================
+
+# Install ggplot2 if required
+if (!requireNamespace("ggplot2", quietly = TRUE)) {
+  install.packages("ggplot2")
+}
+
+library(ggplot2)
+
+pm_plot <- pm_wide |>
+  select(
+    datetime_15,
+    `No change`,
+    `25 bps increase`,
+    `25 bps decrease`,
+    `50+ bps increase`,
+    `50+ bps decrease`
+  ) |>
+  pivot_longer(
+    cols = -datetime_15,
+    names_to = "outcome",
+    values_to = "probability"
+  )
+
+ggplot(
+  pm_plot,
+  aes(
+    x = datetime_15,
+    y = probability,
+    colour = outcome
+  )
+) +
+  geom_line(
+    linewidth = 0.7,
+    na.rm = TRUE
+  ) +
+  labs(
+    title = "Polymarket Expectations Before the July 2026 FOMC Decision",
+    subtitle = "15-minute market-implied probabilities",
+    x = NULL,
+    y = "Market-implied probability",
+    colour = "FOMC outcome"
+  ) +
+  scale_y_continuous(
+    labels = scales::percent_format(accuracy = 1)
+  ) +
+  theme_minimal()
