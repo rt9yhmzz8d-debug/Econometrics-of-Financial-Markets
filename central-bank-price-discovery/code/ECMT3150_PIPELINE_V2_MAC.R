@@ -654,35 +654,27 @@ download_futures <- function(
 
   timestamp_raw <- rownames(x)
 
-  # LSEG get_history() commonly returns timezone-naive pandas timestamps.
-  # Because the request itself is supplied in UTC, treat naive timestamps as UTC.
-  # If an explicit timezone/offset is present, parse it and convert to UTC.
+  # LSEG Workspace on this machine returns timezone-naive row timestamps
+  # in Australia/Sydney local clock time, even when the requested start/end
+  # are supplied in UTC. Interpret the returned clock times as Sydney time,
+  # then convert them to UTC before strict as-of matching.
+  #
+  # Confirmed example:
+  #   request: 2026-07-27 17:15 UTC
+  #   returned: 2026-07-28 03:15 (Sydney, UTC+10 in July)
 
-  has_explicit_timezone <- stringr::str_detect(
-    timestamp_raw,
-    "Z$|[+-][0-9]{2}:?[0-9]{2}$"
+  timestamp_local <- suppressWarnings(
+    lubridate::ymd_hms(
+      timestamp_raw,
+      tz = "Australia/Sydney",
+      quiet = TRUE
+    )
   )
 
-  if (all(has_explicit_timezone)) {
-
-    bar_start_utc <- suppressWarnings(
-      lubridate::ymd_hms(
-        timestamp_raw,
-        tz = "UTC",
-        quiet = TRUE
-      )
-    )
-
-  } else {
-
-    bar_start_utc <- suppressWarnings(
-      lubridate::ymd_hms(
-        timestamp_raw,
-        tz = "UTC",
-        quiet = TRUE
-      )
-    )
-  }
+  bar_start_utc <- lubridate::with_tz(
+    timestamp_local,
+    "UTC"
+  )
 
   if (
     length(bar_start_utc) != nrow(x) ||
@@ -3113,9 +3105,11 @@ run_meeting <- function(
       market = dplyr::recode(
         series,
         d_pm = "Polymarket",
-        d_fut = "Fed Funds futures"
+        d_fut =
+          "Fed Funds futures"
       )
     )
+
   p_revisions <- ggplot(
     revisions,
     aes(
