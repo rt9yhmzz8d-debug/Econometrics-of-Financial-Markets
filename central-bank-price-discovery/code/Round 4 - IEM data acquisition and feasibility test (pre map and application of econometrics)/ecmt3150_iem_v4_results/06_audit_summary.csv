@@ -1,0 +1,12 @@
+metric,value
+Total month-market requests,312
+Successful HTTP requests,312
+Requests containing parsed rows,196
+Raw IEM rows,31668
+Clean standardised rows,31667
+Distinct contracts,353
+Rows dated before 2008,13782
+Earliest observation date,1999-10-25
+Latest observation date,2017-12-15
+Earliest FedPolicy observation,1999-10-25
+Earliest FedPolicyB observation,2001-10-03
