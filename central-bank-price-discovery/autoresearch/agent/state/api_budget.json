@@ -1,12 +1,12 @@
 {
   "accounting_note": "Local token-based safety accounting. Actual provider billing remains authoritative.",
-  "api_calls": 5,
+  "api_calls": 6,
   "budget_usd": 15.0,
   "created_at_utc": "2026-09-19T12:30:50.223161+00:00",
-  "estimated_spend_usd": 0.025353800000000003,
-  "input_tokens": 14896,
-  "last_call_estimated_cost_usd": 0.0035039999999999997,
+  "estimated_spend_usd": 0.032279300000000004,
+  "input_tokens": 18478,
+  "last_call_estimated_cost_usd": 0.006925499999999999,
   "model": "gpt-5.6-luna",
-  "output_tokens": 13539,
-  "updated_at_utc": "2026-09-19T13:17:37.887456+00:00"
+  "output_tokens": 16554,
+  "updated_at_utc": "2026-09-19T13:21:17.080367+00:00"
 }
