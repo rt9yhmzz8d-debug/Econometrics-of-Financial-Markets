@@ -135,6 +135,11 @@ def rankings():
     return ff_rank, iem_rank
 
 
+
+def key(r):
+    return (r["family"], r["date"])
+
+
 def main():
     if len(sys.argv) != 2:
         raise SystemExit(
