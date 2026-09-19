@@ -3,3 +3,6 @@ logs/
 experiments/
 __pycache__/
 *.tmp
+
+.venv/
+.env

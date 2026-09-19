@@ -1,9 +1,9 @@
 {
   "currency": "USD",
-  "soft_limit": 12.00,
-  "hard_limit": 15.00,
-  "estimated_spend": 0.00,
-  "model_calls": 0,
+  "soft_limit": 12.0,
+  "hard_limit": 15.0,
+  "estimated_spend": 2.1e-05,
+  "model_calls": 1,
   "experiments_completed": 0,
   "automatic_budget_extension": false
 }
