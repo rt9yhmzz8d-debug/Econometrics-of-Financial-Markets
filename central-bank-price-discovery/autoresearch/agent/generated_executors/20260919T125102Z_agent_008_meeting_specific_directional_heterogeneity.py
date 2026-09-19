@@ -12,12 +12,13 @@ from pathlib import Path
 import numpy as np
 
 HERE = Path(__file__).resolve().parent
-AUTORESEARCH = HERE.parent
-OUTPUT_ROOT = AUTORESEARCH / "outputs"
+AGENT = HERE.parent
+AUTORESEARCH = AGENT.parent
+OUTPUT_ROOT = AGENT / "outputs"
 EXPECTED_EXPERIMENT_ID = "agent_008_meeting_specific_directional_heterogeneity"
 
-if str(HERE) not in sys.path:
-    sys.path.insert(0, str(HERE))
+if str(AGENT) not in sys.path:
+    sys.path.insert(0, str(AGENT))
 
 import experiment_engine as engine
 
