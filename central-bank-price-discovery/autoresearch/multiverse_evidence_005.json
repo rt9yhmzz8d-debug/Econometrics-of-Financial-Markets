@@ -1,0 +1,31 @@
+{
+  "experiment": "specification_multiverse_005",
+  "parent_checkpoint": "376cae4",
+  "specifications": 12,
+  "hac_lags": [
+    0,
+    1,
+    3,
+    6,
+    9,
+    12
+  ],
+  "meeting_fixed_effects": [
+    true,
+    false
+  ],
+  "FF_to_IEM": {
+    "beta_min": 0.7426270968390182,
+    "beta_max": 0.744535582262069,
+    "holm_p_min": 0.05691682485308537,
+    "holm_p_max": 0.3800271206715428,
+    "holm_significant_5pct": 0
+  },
+  "IEM_to_FF": {
+    "beta_min": 0.018612696632363156,
+    "beta_max": 0.020096298933613744,
+    "holm_p_min": 0.040159138299089576,
+    "holm_p_max": 0.3800271206715428,
+    "holm_significant_5pct": 2
+  }
+}
