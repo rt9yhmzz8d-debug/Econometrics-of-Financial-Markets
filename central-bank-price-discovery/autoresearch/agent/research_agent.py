@@ -63,6 +63,19 @@ def load(path):
 
 def freeze(path, message):
     run(["git", "add", "-f", str(path.relative_to(REPO))])
+
+    # API calls update the local budget ledger. Freeze that bookkeeping
+    # in the same commit so the next autonomous cycle starts clean.
+    budget_state = (
+        REPO
+        / "central-bank-price-discovery"
+        / "autoresearch"
+        / "agent"
+        / "state"
+        / "api_budget.json"
+    )
+    if budget_state.exists():
+        run(["git", "add", str(budget_state.relative_to(REPO))])
     run(["git", "commit", "-m", message])
 
 
