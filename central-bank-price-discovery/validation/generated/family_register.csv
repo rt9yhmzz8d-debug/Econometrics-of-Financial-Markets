@@ -1,0 +1,114 @@
+family,market,horizon,rows,contracts,has_split_children,positive_quantity_rows,mapping_status,meeting_date,comparison_date,analysis_gate,next_check
+20:0101,FedPolicy,meeting_interval,171,FRdown0101;FRsame0101;FRup0101,False,116,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+20:0200,FedPolicy,meeting_interval,126,FRdown0200;FRsame0200;FRup0200,False,43,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+20:0300,FedPolicy,meeting_interval,175,FR25up0300;FR50up0300;FRdown0300;FRsame0300;FRup0300,True,145,unreviewed,,,excluded_split_notice_missing,"Retrieve actual spin-off bulletin, dates and payoff ranges"
+20:0301,FedPolicy,meeting_interval,141,FRdown0301;FRsame0301;FRup0301,False,112,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+20:0500,FedPolicy,meeting_interval,293,FR25up0500;FR50up0500;FRdown0500;FRsame0500;FRup0500,True,205,unreviewed,,,excluded_split_notice_missing,"Retrieve actual spin-off bulletin, dates and payoff ranges"
+20:0501,FedPolicy,meeting_interval,203,FR25dn0501;FR50dn0501;FRdown0501;FRsame0501;FRup0501,True,177,unreviewed,,,excluded_split_notice_missing,"Retrieve actual spin-off bulletin, dates and payoff ranges"
+20:0600,FedPolicy,meeting_interval,210,FRdown0600;FRsame0600;FRup0600,False,73,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+20:0601,FedPolicy,meeting_interval,132,FRdown0601;FRsame0601;FRup0601,False,74,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+20:0800,FedPolicy,meeting_interval,171,FRdown0800;FRsame0800;FRup0800,False,33,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+20:0801,FedPolicy,meeting_interval,168,FRdown0801;FRsame0801;FRup0801,False,77,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+20:1000,FedPolicy,meeting_interval,132,FRdown1000;FRsame1000;FRup1000,False,75,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+20:1100,FedPolicy,meeting_interval,129,FRdown1100;FRsame1100;FRup1100,False,92,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+20:1199,FedPolicy,meeting_interval,69,FRdown1199;FRsame1199;FRup1199,False,58,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+20:1200,FedPolicy,meeting_interval,114,FRdown1200;FRsame1200;FRup1200,False,96,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+20:1299,FedPolicy,meeting_interval,126,FRdown1299;FRsame1299;FRup1299,False,90,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0102,FedPolicyB,meeting_interval,150,FRdown0102;FRsame0102;FRup0102,False,130,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0103,FedPolicyB,meeting_interval,147,FRdown0103;FRsame0103;FRup0103,False,93,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0104,FedPolicyB,meeting_interval,273,FRdown0104;FRsame0104;FRup0104,False,106,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0106,FedPolicyB,meeting_interval,153,FRdown0106;FRsame0106;FRup0106,False,130,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0107,FedPolicyB,meeting_interval,297,FRdown0107;FRsame0107;FRup0107,False,181,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0108,FedPolicyB,meeting_interval,276,FRdown0108;FRsame0108;FRup0108,False,168,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0109,FedPolicyB,meeting_interval,279,FRdown0109;FRsame0109;FRup0109,False,112,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0110,FedPolicyB,meeting_interval,360,FRdown0110;FRsame0110;FRup0110,False,69,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0111,FedPolicyB,meeting_interval,366,FRdown0111;FRsame0111;FRup0111,False,77,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0117,FedPolicyB,meeting_interval,444,FRdown0117;FRsame0117;FRup0117,False,152,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0205,FedPolicyB,meeting_interval,258,FRdown0205;FRsame0205;FRup0205,False,194,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0302,FedPolicyB,meeting_interval,141,FRdown0302;FRsame0302;FRup0302,False,97,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0303,FedPolicyB,meeting_interval,291,FRdown0303;FRsame0303;FRup0303,False,205,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0304,FedPolicyB,meeting_interval,297,FRdown0304;FRsame0304;FRup0304,False,160,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0305,FedPolicyB,meeting_interval,303,FRdown0305;FRsame0305;FRup0305,False,210,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0306,FedPolicyB,meeting_interval,168,FRdown0306;FRsame0306;FRup0306,False,162,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0307,FedPolicyB,meeting_interval,306,FRdown0307;FRsame0307;FRup0307,False,157,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0308,FedPolicyB,meeting_interval,294,FRdown0308;FRsame0308;FRup0308,False,156,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0309,FedPolicyB,meeting_interval,132,FRdown0309;FRsame0309;FRup0309,False,56,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0310,FedPolicyB,meeting_interval,321,FRdown0310;FRsame0310;FRup0310,False,46,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0311,FedPolicyB,meeting_interval,186,FRdown0311;FRsame0311;FRup0311,False,7,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0313Q,FedPolicyB,quarterly,957,FRdwn0313Q;FRsam0313Q;FRup0313Q,False,64,unreviewed,,,excluded_quarterly_horizon,Separate quarterly horizon; verify both endpoint meetings
+51:0317,FedPolicyB,meeting_interval,558,FRdown0317;FRsame0317;FRup0317,False,137,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0408,FedPolicyB,meeting_interval,273,FRdown0408;FRsame0408;FRup0408,False,127,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0409,FedPolicyB,meeting_interval,264,FRdown0409;FRsame0409;FRup0409,False,67,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0410,FedPolicyB,meeting_interval,84,FRdown0410;FRsame0410;FRup0410,False,8,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0411,FedPolicyB,meeting_interval,267,FRdown0411;FRsame0411;FRup0411,False,24,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0502,FedPolicyB,meeting_interval,150,FRdown0502;FRsame0502;FRup0502,False,130,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0503,FedPolicyB,meeting_interval,300,FRDown0503;FRsame0503;FRup0503,False,196,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0504,FedPolicyB,meeting_interval,297,FRdown0504;FRsame0504;FRup0504,False,248,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0505,FedPolicyB,meeting_interval,267,FRdown0505;FRsame0505;FRup0505,False,180,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0507,FedPolicyB,meeting_interval,285,FRdown0507;FRsame0507;FRup0507,False,159,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0517,FedPolicyB,meeting_interval,558,FRdown0517;FRsame0517;FRup0517,False,105,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0602,FedPolicyB,meeting_interval,159,FRdown0602;FRsame0602;FRup0602,False,102,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0603,FedPolicyB,meeting_interval,303,FRdown0603;FRsame0603;FRup0603,False,165,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0604,FedPolicyB,meeting_interval,303,FRdown0604;FRsame0604;FRup0604,False,245,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0605,FedPolicyB,meeting_interval,261,FRdown0605;FRsame0605;FRup0605,False,160,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0606,FedPolicyB,meeting_interval,129,FRdown0606;FRsame0606;FRup0606,False,111,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0607,FedPolicyB,meeting_interval,285,FRdown0607;FRsame0607;FRup0607,False,122,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0608,FedPolicyB,meeting_interval,297,FRdown0608;FRsame0608;FRup0608,False,125,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0609,FedPolicyB,meeting_interval,303,FRdown0609;FRsame0609;FRup0609,False,109,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0610,FedPolicyB,meeting_interval,174,FRdown0610;FRsame0610;FRup0610,False,17,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0611,FedPolicyB,meeting_interval,429,FRdown0611;FRsame0611;FRup0611,False,77,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0613Q,FedPolicyB,quarterly,621,FRdwn0613Q;FRsam0613Q;FRup0613Q,False,19,unreviewed,,,excluded_quarterly_horizon,Separate quarterly horizon; verify both endpoint meetings
+51:0616,FedPolicyB,meeting_interval,156,FRdown0616;FRsame0616;FRup0616,False,11,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0716,FedPolicyB,meeting_interval,171,FRdown0716;FRsame0716;FRup0716,False,19,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0717,FedPolicyB,meeting_interval,177,FRdown0717;FRsame0717;FRup0717,False,0,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0802,FedPolicyB,meeting_interval,141,FRdown0802;FRsame0802;FRup0802,False,107,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0803,FedPolicyB,meeting_interval,297,FRdown0803;FRsame0803;FRup0803,False,125,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0804,FedPolicyB,meeting_interval,333,FRdown0804;FRsame0804;FRup0804,False,259,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0805,FedPolicyB,meeting_interval,303,FRdown0805;FRsame0805;FRup0805,False,216,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0806,FedPolicyB,meeting_interval,123,FRdown0806;FRsame0806;FRup0806,False,99,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0807,FedPolicyB,meeting_interval,257,FRdown0807;FRsame0807;FRup0807,False,83,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0808,FedPolicyB,meeting_interval,255,FRdown0808;FRsame0808;FRup0808,False,131,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0809,FedPolicyB,meeting_interval,267,FRdown0809;FRsame0809;FRup0809,False,110,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0810,FedPolicyB,meeting_interval,312,FRdown0810;FRsame0810;FRup0810,False,27,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0811,FedPolicyB,meeting_interval,510,FRdown0811;FRsame0811;FRup0811,False,61,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0902,FedPolicyB,meeting_interval,135,FRdown0902;FRsame0902;FRup0902,False,100,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0903,FedPolicyB,meeting_interval,249,FRdown0903;FRsame0903;FRup0903,False,113,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0904,FedPolicyB,meeting_interval,456,FRdown0904;FRsame0904;FRup0904,False,304,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0905,FedPolicyB,meeting_interval,255,FRdown0905;FRsame0905;FRup0905,False,197,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0906,FedPolicyB,meeting_interval,252,FRdown0906;FRsame0906;FRup0906,False,118,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0907,FedPolicyB,meeting_interval,240,FRdown0907;FRsame0907;FRup0907,False,152,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0908,FedPolicyB,meeting_interval,246,FRdown0908;FRsame0908;FRup0908,False,110,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0909,FedPolicyB,meeting_interval,123,FRdown0909;FRsame0909;FRup0909,False,50,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0910,FedPolicyB,meeting_interval,300,FRdown0910;FRsame0910;FRup0910,False,14,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0911,FedPolicyB,meeting_interval,270,FRdown0911;FRsame0911;FRup0911,False,24,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0912Q,FedPolicyB,quarterly,324,FRdwn0912Q;FRsam0912Q;FRup0912Q,False,19,unreviewed,,,excluded_quarterly_horizon,Separate quarterly horizon; verify both endpoint meetings
+51:0913Q,FedPolicyB,quarterly,1014,FRdwn0913Q;FRsam0913Q;FRup0913Q,False,35,unreviewed,,,excluded_quarterly_horizon,Separate quarterly horizon; verify both endpoint meetings
+51:0916,FedPolicyB,meeting_interval,381,FRdown0916;FRsame0916;FRup0916,False,116,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:0917,FedPolicyB,meeting_interval,360,FRdown0917;FRsame0917;FRup0917,False,0,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:1003,FedPolicyB,meeting_interval,231,FRdown1003;FRsame1003;FRup1003,False,90,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:1006,FedPolicyB,meeting_interval,243,FRdown1006;FRsame1006;FRup1006,False,135,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:1007,FedPolicyB,meeting_interval,258,FRdown1007;FRsame1007;FRup1007,False,144,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:1008,FedPolicyB,meeting_interval,306,FR25d1008;FR50+d1008;FR50d1008;FRdown1008;FRsame1008;FRup1008,True,190,unreviewed,,,excluded_split_notice_missing,"Retrieve actual spin-off bulletin, dates and payoff ranges"
+51:1017,FedPolicyB,meeting_interval,528,FRdown1017;FRsame1017;FRup1017,False,0,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:1101,FedPolicyB,meeting_interval,108,FRdown1101;FRsame1101;FRup1101,False,99,source_checked,2001-11-06,2001-10-03,blocked_price_volume_and_futures,Resolve price-volume inconsistencies and align futures
+51:1102,FedPolicyB,meeting_interval,129,FRdown1102;FRsame1102;FRup1102,False,120,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:1104,FedPolicyB,meeting_interval,153,FRdown1104;FRsame1104;FRup1104,False,132,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:1105,FedPolicyB,meeting_interval,126,FRdown1105;FRsame1105;FRup1105,False,108,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:1109,FedPolicyB,meeting_interval,108,FRdown1109;FRsame1109;FRup1109,False,47,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:1110,FedPolicyB,meeting_interval,90,FRdown1110;FRsame1110;FRup1110,False,15,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:1111,FedPolicyB,meeting_interval,573,FRdown1111;FRsame1111;FRup1111,False,42,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:1116,FedPolicyB,meeting_interval,468,FRdown1116;FRsame1116;FRup1116,False,138,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:1201,FedPolicyB,meeting_interval,137,FR25dn1201;FR50dn1201;FRdown1201;FRsame1201;FRup1201,True,129,unreviewed,,,excluded_split_notice_missing,"Retrieve actual spin-off bulletin, dates and payoff ranges"
+51:1202,FedPolicyB,meeting_interval,102,FRdown1202;FRsame1202;FRup1202,False,93,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:1203,FedPolicyB,meeting_interval,252,FRdown1203;FRsame1203;FRup1203,False,128,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:1204,FedPolicyB,meeting_interval,255,FRdown1204;FRsame1204;FRup1204,False,212,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:1205,FedPolicyB,meeting_interval,123,FRdown1205;FRsame1205;FRup1205,False,103,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:1206,FedPolicyB,meeting_interval,252,FRdown1206;FRsame1206;FRup1206,False,196,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:1207,FedPolicyB,meeting_interval,258,FRdown1207;FRsame1207;FRup1207,False,160,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:1208,FedPolicyB,meeting_interval,314,FR25d1208;FR50+d1208;FR50d1208;FRdown1208;FRsame1208;FRup1208,True,187,unreviewed,,,excluded_split_notice_missing,"Retrieve actual spin-off bulletin, dates and payoff ranges"
+51:1209,FedPolicyB,meeting_interval,123,FRdown1209;FRsame1209;FRup1209,False,31,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:1210,FedPolicyB,meeting_interval,366,FRdown1210;FRsame1210;FRup1210,False,34,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:1212Q,FedPolicyB,quarterly,600,FRdwn1212Q;FRsam1212Q;FRup1212Q,False,47,unreviewed,,,excluded_quarterly_horizon,Separate quarterly horizon; verify both endpoint meetings
+51:1213Q,FedPolicyB,quarterly,1746,FRdwn1213Q;FRsam1213Q;FRup1213Q,False,41,unreviewed,,,excluded_quarterly_horizon,Separate quarterly horizon; verify both endpoint meetings
+51:1216,FedPolicyB,meeting_interval,219,FRdown1216;FRsame1216;FRup1216,False,105,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping
+51:1217,FedPolicyB,meeting_interval,366,FRdown1217;FRsame1217;FRup1217,False,0,unreviewed,,,excluded_definition_mapping_unreviewed,Verify market-specific definition and event mapping

@@ -1,0 +1,49 @@
+{
+  "baseline_commit": "e5928a751856e59816342085dd76f33a8ac5ee79",
+  "clean_csv_sha256": "7bcb3f5db08b4af027ece0e6b4de1f5e1cbd9a52cae9722e980a51a24c96ac95",
+  "reviewed_on": "2026-09-19",
+  "reviewer": "Codex, primary-source inspection",
+  "market_rule_review": {
+    "FedPolicyB": {
+      "status": "source_checked_general_rule",
+      "operated_from": "2001-10-03",
+      "comparison_rule": "Compare the target announced at the period-ending scheduled meeting with the target in place on the day after the preceding scheduled meeting; this includes cumulative inter-meeting changes.",
+      "target_definition": "Federal-funds target rate; use the midpoint if the FOMC specifies an interval.",
+      "source": "https://iemweb.biz.uiowa.edu/iem_prospectus/federal-reserve-monetary-policy-market-b/",
+      "notes": "The IEM prospectus states that FedPolicyB replaced FedPolicy and that the markets differ in treatment of inter-meeting changes and trader access. This general rule does not validate individual family mappings or split notices."
+    },
+    "FedPolicy": {
+      "status": "unresolved_original_prospectus_required",
+      "operated_from": "1999-10",
+      "operated_through": "2001-08",
+      "source_for_distinction_only": "https://iemweb.biz.uiowa.edu/iem_prospectus/federal-reserve-monetary-policy-market-b/",
+      "notes": "Do not apply the FedPolicyB cumulative-change rule to Market 20. The surviving FedPolicyB prospectus explicitly says the earlier market used different inter-meeting treatment, but it does not state the earlier rule."
+    }
+  },
+  "pilot": {
+    "family": "51:1101",
+    "market": "FedPolicyB",
+    "meeting_date": "2001-11-06",
+    "comparison_date": "2001-10-03",
+    "contract_definition_status": "source_checked",
+    "meeting_mapping_status": "source_checked",
+    "contracts": {
+      "down": "FRdown1101",
+      "same": "FRsame1101",
+      "up": "FRup1101"
+    },
+    "payoff_summary": "Each contract pays USD 1 when the target rate on the meeting date is, respectively, lower, unchanged or higher than on the comparison date, and USD 0 otherwise.",
+    "price_units": "USD per USD 1 contingent payoff",
+    "score_units": "100 times (up probability minus down probability), in probability points",
+    "definition_source": "https://iemweb.biz.uiowa.edu/iem_prospectus/federal-reserve-monetary-policy-market-b/",
+    "calendar_source": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2001.htm",
+    "notes": "The prospectus explicitly names this initial family and both comparison dates. This check does not validate other families or the daily price/volume fields."
+  },
+  "diagnostic_screen": {
+    "max_age_calendar_days": 3,
+    "raw_probability_sum_tolerance": 0.1,
+    "purpose": "Diagnostic only. Passing this screen does not authorize econometrics.",
+    "meeting_day_rule": "Exclude the whole meeting date and all later dates because the input has no intraday trade timestamps.",
+    "refresh_rule": "Only positive reported quantity refreshes the diagnostic trade price; a changed price on a zero-quantity row is separately flagged as unresolved."
+  }
+}
