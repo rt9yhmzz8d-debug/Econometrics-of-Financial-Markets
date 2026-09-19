@@ -14,7 +14,10 @@ HERE = Path(__file__).resolve().parent
 AUTORESEARCH = HERE.parent
 REPO = HERE.parents[2]
 
-PANEL = AUTORESEARCH / "historical_panel_2002.csv"
+PANEL = (
+    AR.parent / "validation" / "external" / "barchart" /
+    "processed" / "historical_panel_2002_gap_safe.csv"
+)
 INFLUENCE = AUTORESEARCH / "influence_rows_004.csv"
 
 BASE_FF_IEM = 0.7445355822620644
