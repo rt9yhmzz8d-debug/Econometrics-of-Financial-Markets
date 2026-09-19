@@ -281,6 +281,7 @@ def propose():
                 "strict": True,
                 "schema": {
                     "type": "object",
+                    "additionalProperties": False,
                     "properties": {
                         "experiment_id": {"type": "string"},
                         "title": {"type": "string"},
