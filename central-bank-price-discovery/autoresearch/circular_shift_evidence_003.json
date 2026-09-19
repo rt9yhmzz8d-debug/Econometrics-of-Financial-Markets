@@ -1,0 +1,47 @@
+{
+  "experiment": "circular_shift_placebo_003",
+  "frozen_parent_checkpoint": "ec15070",
+  "seed": 3151,
+  "circular_shift_draws": 1000,
+  "meetings": 8,
+  "usable_var_rows_per_draw": 160,
+  "null_design": "Circular-shift the Fed Funds revision sequence relative to the IEM revision sequence within each meeting. This preserves each market's marginal distribution and internal serial ordering while disrupting their cross-market temporal alignment and preserving meeting identity.",
+  "baseline": {
+    "FF_to_IEM_beta": 0.7445355822620687,
+    "IEM_to_FF_beta": 0.02009629893361374
+  },
+  "FF_to_IEM": {
+    "baseline_beta": 0.7445355822620687,
+    "placebo_mean": -0.03857895980733632,
+    "placebo_sd": 0.8753400343975981,
+    "exceedances": 204,
+    "empirical_p": 0.204,
+    "empirical_p_plus1": 0.2047952047952048,
+    "quantiles": {
+      "q01": -1.9834454542240119,
+      "q025": -1.7765126321811073,
+      "q05": -1.5692121630074625,
+      "median": -0.06066774097845054,
+      "q95": 1.3404752982407977,
+      "q975": 1.5851842493689203,
+      "q99": 1.7697208617735494
+    }
+  },
+  "IEM_to_FF": {
+    "baseline_beta": 0.02009629893361374,
+    "placebo_mean": -0.0007986036750840408,
+    "placebo_sd": 0.01968076706393705,
+    "exceedances": 158,
+    "empirical_p": 0.158,
+    "empirical_p_plus1": 0.15884115884115885,
+    "quantiles": {
+      "q01": -0.0418485452881148,
+      "q025": -0.03890273532303834,
+      "q05": -0.032347322819298516,
+      "median": -0.0024940368198469076,
+      "q95": 0.033764549154032354,
+      "q975": 0.03749581067593825,
+      "q99": 0.0413174008073509
+    }
+  }
+}
