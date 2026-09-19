@@ -1,0 +1,140 @@
+{
+  "analysis_type": "Descriptive blocked heterogeneity analysis using meeting-specific directional VAR slopes with baseline-compatible meeting fixed effects and HAC(6) uncertainty reporting",
+  "baseline_contract": {
+    "hac_lag": 6,
+    "meetings": 8,
+    "reproduction_required": true,
+    "rows": 160
+  },
+  "estimands": [
+    {
+      "hac_lag": 6,
+      "meeting_fixed_effects": true,
+      "name": "meeting_specific_FF_to_IEM",
+      "offset": 1,
+      "outcome": "current-period delta_iem",
+      "predictors": [
+        "intercept",
+        "lagged delta_iem as baseline control",
+        "lagged delta_ff_bp interacted with each of the 8 meeting indicators",
+        "meeting fixed-effect indicators"
+      ],
+      "temporal_direction": "lag_or_lead"
+    },
+    {
+      "hac_lag": 6,
+      "meeting_fixed_effects": true,
+      "name": "meeting_specific_IEM_to_FF",
+      "offset": 1,
+      "outcome": "current-period delta_ff_bp",
+      "predictors": [
+        "intercept",
+        "lagged delta_ff_bp as baseline control",
+        "lagged delta_iem interacted with each of the 8 meeting indicators",
+        "meeting fixed-effect indicators"
+      ],
+      "temporal_direction": "lag_or_lead"
+    }
+  ],
+  "experiment_id": "agent_008_meeting_specific_directional_heterogeneity",
+  "forbidden_actions": [
+    "Do not execute the experiment as part of this contract.",
+    "Do not modify, overwrite, delete, or otherwise alter validation/ or any validated source data.",
+    "Do not write experiment outputs outside autoresearch/.",
+    "Do not use noncanonical or manually altered panel data.",
+    "Do not add observations, interpolate values, or bridge excluded temporal gaps.",
+    "Do not construct lags or leads across FOMC meeting boundaries.",
+    "Do not change the baseline sample restrictions, transformations, lag structure, fixed effects, or HAC lag.",
+    "Do not add offsets, alternative specifications, alternative samples, or additional tests not contained in the frozen proposal.",
+    "Do not select meetings, coefficients, or models based on favorable signs, t statistics, p values, or statistical significance.",
+    "Do not discard negative, null, unstable, rank-deficient, or otherwise adverse results.",
+    "Do not overwrite prior experiment evidence.",
+    "Do not replace the preregistered sign-count criterion with a formal significance test.",
+    "Do not interpret the eight meetings as independent confirmation.",
+    "Do not suppress rank deficiency, convergence problems, insufficient variation, or meeting-specific estimation failures.",
+    "Do not report an experiment result unless baseline reproduction has passed.",
+    "Do not generate or substitute code for the implementation contract."
+  ],
+  "implementation_status": "planned_not_executed",
+  "input_contract": {
+    "canonical_panel_only": true,
+    "required_columns": [
+      "family",
+      "revision_valid",
+      "var_lag_valid",
+      "delta_iem",
+      "delta_ff_bp"
+    ],
+    "validated_data_read_only": true
+  },
+  "interpretation_rules": [
+    "Evaluate the primary hypothesis using the preregistered sign-count and coefficient-dispersion summaries, not p-value thresholds.",
+    "If at least 6 of 8 FF-to-IEM coefficients are positive and fewer than 6 of 8 IEM-to-FF coefficients are positive, report that the descriptive directional stability pattern is supported.",
+    "If fewer than 6 meetings have the predicted signs, or if coefficients show large opposing values, report the pooled directional result as heterogeneous and potentially episode-specific.",
+    "A positive pooled coefficient must not be treated as evidence of stable general price discovery when meeting-specific results show substantial heterogeneity or opposing signs.",
+    "Moderate dispersion with the preregistered sign pattern may strengthen the robustness interpretation descriptively, but cannot convert the eight-meeting exercise into independent confirmation.",
+    "The eight-meeting historical exercise remains a robustness stress test rather than independent confirmation of temporal price discovery.",
+    "Meeting-specific estimates are descriptive and do not identify a causal mechanism.",
+    "All null, reversed, adverse, unstable, and failed meeting-specific results must be retained and reported.",
+    "P values and statistical significance must not be used to select meetings, specifications, reported estimates, or interpretations.",
+    "Any estimation failure must be reported rather than silently excluded from the evidence.",
+    "The observation-weighted consistency comparison is an aggregation diagnostic and does not establish causal validity or eliminate finite-sample limitations."
+  ],
+  "pairing_rules": [
+    "Use only the exact canonical historical panel used by the validated baseline.",
+    "Within each meeting family, pair each current observation with the immediately preceding observation in that same meeting block.",
+    "Use only observations marked var_lag_valid=True, and require the paired lag observation to have revision_valid=True, exactly as in the baseline.",
+    "Use current-period delta_iem and delta_ff_bp as dependent variables and the one-period within-meeting lagged changes as regressors.",
+    "Preserve all eight meeting boundaries; never use a lag from another meeting.",
+    "Do not fill, interpolate, reorder across, or bridge excluded temporal gaps.",
+    "Retain the baseline meeting fixed-effect construction and family ordering.",
+    "Replace each pooled directional slope with its eight meeting-indicator interactions while retaining the other lagged directional variable as the baseline control.",
+    "Estimate and report all eight meeting-specific FF-to-IEM coefficients and all eight meeting-specific IEM-to-FF coefficients.",
+    "Compute each meeting's model-implied contribution to the observation-weighted pooled coefficient using its meeting-specific coefficient and its number of usable observations.",
+    "Compare the observation-weighted average of the meeting-specific coefficients with the corresponding reproduced pooled baseline coefficient as an algebraic consistency check.",
+    "Apply the preregistered directional stability rule: the FF-to-IEM coefficient is positive in at least 6 of 8 meetings, while the IEM-to-FF coefficient is not positive in at least 6 meetings."
+  ],
+  "pre_execution_assertions": [
+    "The canonical panel exists at the validated external barchart processed-panel location.",
+    "The validation directory is read-only and no experiment output is written there.",
+    "The canonical panel contains exactly 201 matched levels.",
+    "The canonical panel contains exactly 8 meeting families.",
+    "The canonical panel contains exactly 179 revision-valid observations.",
+    "The baseline construction produces exactly 160 usable VAR rows.",
+    "Baseline reproduction is completed before the new estimation is run.",
+    "The reproduced baseline FF-to-IEM coefficient equals 0.7445355822620687 within the frozen tolerance.",
+    "The reproduced baseline IEM-to-FF coefficient equals 0.02009629893361374 within the frozen tolerance.",
+    "The experiment creates a new output directory without overwriting evidence from prior experiments.",
+    "The experiment uses the exact baseline transformations, sample restrictions, lag structure, meeting boundaries, and fixed-effect construction.",
+    "No additional offset, alternative sample, alternative bandwidth, alternative specification, or significance-based selection rule is introduced.",
+    "The design matrix and each meeting-specific estimation problem are checked for rank deficiency before results are accepted as estimable."
+  ],
+  "required_engine_capabilities": [
+    "Read only the canonical validated historical panel",
+    "Reproduce the frozen baseline before estimating the experiment",
+    "Preserve meeting blocks and exclude invalid lag or revision observations exactly as in the baseline",
+    "Construct meeting-specific interactions between each directional lagged predictor and the eight meeting indicators",
+    "Estimate the two directional equations without bridging temporal gaps or crossing meeting boundaries",
+    "Compute baseline-compatible block HAC standard errors with lag 6 where estimable",
+    "Report meeting-specific coefficients, signs, observation counts, dispersion summaries, and observation-weighted aggregation checks",
+    "Detect and explicitly record rank deficiency, singularity, convergence, or meeting-specific estimation failures",
+    "Persist complete reproducible outputs, execution metadata, and input or procedure fingerprints",
+    "Verify deterministic rerun identity on the same frozen inputs"
+  ],
+  "required_outputs": [
+    "Complete meeting-by-direction coefficient table containing meeting identifier, direction, coefficient, sign, usable observation count, standard error where estimable, HAC lag, t statistic and p value where computable, and estimation status.",
+    "Separate records for all eight FF-to-IEM meeting-specific coefficients and all eight IEM-to-FF meeting-specific coefficients, including negative, zero, unstable, or failed estimates.",
+    "Design dimensions for each equation, including total observations, number of regressors, number of meeting interactions, number of fixed-effect indicators, and rank.",
+    "Meeting-level aggregation checks showing observation-weighted coefficient contributions and the observation-weighted average for each direction.",
+    "Pooled baseline coefficients used in the consistency comparison.",
+    "Algebraic differences between each observation-weighted meeting-specific average and its reproduced pooled baseline coefficient.",
+    "Directional sign counts and proportions across the eight meetings.",
+    "For each direction, minimum, maximum, median, first quartile, third quartile, interquartile range, and other prespecified dispersion summaries of meeting-specific coefficients.",
+    "The preregistered stability decision based on sign counts, reported descriptively and not as a significance test.",
+    "Explicit rank-deficiency, singularity, convergence, insufficient-variation, or meeting-specific estimation-failure records where applicable.",
+    "Baseline reproduction output, including matched levels, usable rows, meetings, coefficients, standard errors, t statistics, and p values.",
+    "Execution metadata including experiment identifier, timestamp, software or engine version, canonical input path, input fingerprint, output path, and procedure fingerprint.",
+    "Deterministic rerun verification showing that rerunning on the same frozen inputs produces identical coefficients, summaries, statuses, and fingerprints.",
+    "A record that the experiment was planned and executed without modifying validated source data."
+  ]
+}
