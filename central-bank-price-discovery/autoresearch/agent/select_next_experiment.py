@@ -177,14 +177,46 @@ def main():
     for c in candidates:
         c["methodological_priority_score"] = candidate_score(c)
 
-    candidates.sort(
+    # Never select an experiment that has already been preregistered or run.
+    # A dry-run preregistration also counts as consumed: once a decision has
+    # been frozen, the selector moves on rather than silently repeating it.
+    consumed_experiment_ids = set()
+
+    for prior_path in RUNS.glob("*.json"):
+        try:
+            prior = json.loads(prior_path.read_text())
+        except Exception:
+            continue
+
+        prior_exp = (
+            prior.get("selected_experiment")
+            or prior.get("proposal")
+            or {}
+        )
+
+        experiment_id = prior_exp.get("experiment_id")
+        if experiment_id:
+            consumed_experiment_ids.add(experiment_id)
+
+    eligible_candidates = [
+        c for c in candidates
+        if c["experiment_id"] not in consumed_experiment_ids
+    ]
+
+    if not eligible_candidates:
+        raise SystemExit(
+            "STOP: no unused candidate experiments remain. "
+            "Add new scientifically motivated candidates before continuing."
+        )
+
+    eligible_candidates.sort(
         key=lambda x: (
             -x["methodological_priority_score"],
             x["experiment_id"],
         )
     )
 
-    selected = candidates[0]
+    selected = eligible_candidates[0]
 
     now = datetime.now(timezone.utc)
     run_id = now.strftime("%Y%m%dT%H%M%SZ")
