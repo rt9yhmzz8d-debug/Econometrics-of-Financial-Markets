@@ -40,7 +40,7 @@ OUTPUT_USD_PER_M = 1.20
 
 DEFAULT_BUDGET_USD = 15.00
 
-MAX_PROPOSAL_OUTPUT_TOKENS = 2500
+MAX_PROPOSAL_OUTPUT_TOKENS = 6000
 
 
 def load_json(path: Path):
@@ -274,6 +274,75 @@ def propose():
         model=MODEL,
         input=build_prompt(),
         max_output_tokens=MAX_PROPOSAL_OUTPUT_TOKENS,
+        text={
+            "format": {
+                "type": "json_schema",
+                "name": "research_proposal",
+                "strict": True,
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "experiment_id": {"type": "string"},
+                        "title": {"type": "string"},
+                        "research_question": {"type": "string"},
+                        "falsifiable_hypothesis": {"type": "string"},
+                        "motivation": {"type": "string"},
+                        "method": {
+                            "type": "object",
+                            "properties": {
+                                "analysis_type": {"type": "string"},
+                                "inputs": {
+                                    "type": "array",
+                                    "items": {"type": "string"}
+                                },
+                                "steps": {
+                                    "type": "array",
+                                    "items": {"type": "string"}
+                                },
+                                "parameters": {"type": "object"}
+                            },
+                            "required": [
+                                "analysis_type",
+                                "inputs",
+                                "steps",
+                                "parameters"
+                            ],
+                            "additionalProperties": True
+                        },
+                        "protected_invariants": {
+                            "type": "array",
+                            "items": {"type": "string"}
+                        },
+                        "expected_information_gain": {"type": "string"},
+                        "interpretation_if_supported": {"type": "string"},
+                        "interpretation_if_not_supported": {"type": "string"},
+                        "limitations": {
+                            "type": "array",
+                            "items": {"type": "string"}
+                        },
+                        "execution_requirements": {
+                            "type": "array",
+                            "items": {"type": "string"}
+                        }
+                    },
+                    "required": [
+                        "experiment_id",
+                        "title",
+                        "research_question",
+                        "falsifiable_hypothesis",
+                        "motivation",
+                        "method",
+                        "protected_invariants",
+                        "expected_information_gain",
+                        "interpretation_if_supported",
+                        "interpretation_if_not_supported",
+                        "limitations",
+                        "execution_requirements"
+                    ],
+                    "additionalProperties": False
+                }
+            }
+        },
     )
 
     cost = record_usage(response)
