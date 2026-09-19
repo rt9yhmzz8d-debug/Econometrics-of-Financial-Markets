@@ -15,7 +15,7 @@ AUTORESEARCH = HERE.parent
 REPO = HERE.parents[2]
 
 PANEL = (
-    AR.parent / "validation" / "external" / "barchart" /
+    AUTORESEARCH.parent / "validation" / "external" / "barchart" /
     "processed" / "historical_panel_2002_gap_safe.csv"
 )
 INFLUENCE = AUTORESEARCH / "influence_rows_004.csv"
