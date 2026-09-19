@@ -8,8 +8,23 @@
     "validated_data_read_only": true
   },
   "created_at_utc": "2026-09-19T11:50:18.248740+00:00",
-  "evaluation": null,
-  "execution": null,
+  "evaluation": {
+    "FF_to_IEM_sign_preserved_all": true,
+    "IEM_to_FF_sign_preserved_all": false,
+    "result_selection_performed": false,
+    "null_results_recorded": true
+  },
+  "execution": {
+    "engine": "executor.py",
+    "evidence": "central-bank-price-discovery/autoresearch/agent/outputs/20260919T115018Z/evidence.json",
+    "baseline_reproduced": true,
+    "trim_counts_executed": [
+      1,
+      3,
+      5,
+      10
+    ]
+  },
   "foundation_sha256": "20945787fbb90617f0f93545f84cc44bba3f1fa6063d6cff1944af7dda1d5edb",
   "parent_checkpoint": "8ecd279",
   "proposal": {
@@ -54,5 +69,5 @@
   },
   "run_id": "20260919T115018Z",
   "starting_commit": "8b9d7f59050eea39ffb5b381e1741354c22193a6",
-  "status": "validated"
+  "status": "executed"
 }
