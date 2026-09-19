@@ -1,0 +1,58 @@
+{
+  "branch": "autoresearch-agent-006",
+  "constraints": {
+    "automatic_merge": false,
+    "automatic_push": false,
+    "optimise_for_significance": false,
+    "record_null_results": true,
+    "validated_data_read_only": true
+  },
+  "created_at_utc": "2026-09-19T11:50:18.248740+00:00",
+  "evaluation": null,
+  "execution": null,
+  "foundation_sha256": "20945787fbb90617f0f93545f84cc44bba3f1fa6063d6cff1944af7dda1d5edb",
+  "parent_checkpoint": "8ecd279",
+  "proposal": {
+    "design": {
+      "baseline_rows": 160,
+      "directions": [
+        "FF_to_IEM",
+        "IEM_to_FF"
+      ],
+      "hac_lag": 6,
+      "meeting_fixed_effects": true,
+      "ranking_rule": "absolute leave-one-out coefficient change",
+      "source": "influence_rows_004.csv",
+      "trim_counts": [
+        1,
+        3,
+        5,
+        10
+      ]
+    },
+    "experiment_id": "agent_006_influence_trim",
+    "motivation": "Experiment 004 identified observations with unusually large leave-one-out influence. A deterministic trimming exercise tests concentration of the result without searching for a preferred significance outcome.",
+    "research_question": "Do the directional VAR coefficients retain their sign and approximate magnitude after removing the most influential observations identified independently by experiment 004?",
+    "success_criteria": {
+      "no_significance_optimisation": true,
+      "record_null_result": true,
+      "scientific_success": "A valid, reproducible result is success regardless of whether the original finding strengthens, weakens or disappears."
+    },
+    "title": "Pre-specified influence-trim robustness"
+  },
+  "proposal_validation": {
+    "checks": [
+      "baseline row count frozen",
+      "HAC lag pre-specified",
+      "meeting fixed effects pre-specified",
+      "trim counts pre-specified",
+      "null results explicitly admissible",
+      "no significance optimisation permitted"
+    ],
+    "passed": true,
+    "validated_at_utc": "2026-09-19T11:50:18.325770+00:00"
+  },
+  "run_id": "20260919T115018Z",
+  "starting_commit": "8b9d7f59050eea39ffb5b381e1741354c22193a6",
+  "status": "validated"
+}
