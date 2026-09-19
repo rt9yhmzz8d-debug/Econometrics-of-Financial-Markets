@@ -1,0 +1,42 @@
+#!/bin/zsh
+set -e
+
+ROOT="$(cd "$(dirname "$0")" && pwd)"
+cd "$ROOT"
+
+AG="central-bank-price-discovery/autoresearch/agent"
+PY="central-bank-price-discovery/autoresearch/.venv/bin/python"
+
+echo "======================================"
+echo " ECMT3150 AUTORESEARCH"
+echo " Budget ceiling: \$15"
+echo "======================================"
+
+if [[ -z "$OPENAI_API_KEY" ]]; then
+    read -s "OPENAI_API_KEY?OpenAI API key: "
+    export OPENAI_API_KEY
+    echo
+fi
+
+echo "Refreshing GitNexus..."
+npx -y gitnexus@latest analyze . --force
+
+echo
+echo "Checking safety guard..."
+"$PY" "$AG/gitnexus_guard.py"
+
+echo
+echo "Current API budget:"
+"$PY" "$AG/ai_researcher.py" budget
+
+echo
+echo "Starting autonomous research..."
+"$PY" "$AG/research_agent.py" run --max-experiments 20
+
+echo
+echo "======================================"
+echo " AUTORESEARCH FINISHED"
+echo "======================================"
+
+"$PY" "$AG/ai_researcher.py" budget
+git status --short
