@@ -1,0 +1,2 @@
+meeting_date,contract,pre_date,pre_price,meeting_date_price,pre_implied_rate_pct,meeting_implied_rate_pct,raw_change_bp,kuttner_scale,scaled_surprise_bp,gss_mpspr,gss_surprise_bp,announcement_day_for_estimation,pilot_futures_provenance_ready
+2001-11-06,ZQX01,2001-11-05,97.835,97.915,2.1650000000000063,2.0849999999999937,-8.00000000000125,1.25,-10.000000000001563,-0.1,-10.0,EXCLUDE,TRUE
