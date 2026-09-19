@@ -1,0 +1,233 @@
+{
+  "analysis_type": "Pre-specified lead-lag sensitivity analysis using the baseline meeting-fixed-effects VAR-style regressions",
+  "baseline_contract": {
+    "hac_lag": 6,
+    "meetings": 8,
+    "reproduction_required": true,
+    "rows": 160
+  },
+  "estimands": [
+    {
+      "hac_lag": 6,
+      "meeting_fixed_effects": true,
+      "name": "FF_to_IEM_offset_minus_2",
+      "offset": -2,
+      "outcome": "delta_iem_t",
+      "predictors": [
+        "delta_iem_{t-1}",
+        "delta_ff_bp_{t+2}",
+        "meeting_fixed_effects"
+      ],
+      "temporal_direction": "future_predictor_lead"
+    },
+    {
+      "hac_lag": 6,
+      "meeting_fixed_effects": true,
+      "name": "IEM_to_FF_offset_minus_2",
+      "offset": -2,
+      "outcome": "delta_ff_bp_t",
+      "predictors": [
+        "delta_ff_bp_{t-1}",
+        "delta_iem_{t+2}",
+        "meeting_fixed_effects"
+      ],
+      "temporal_direction": "future_predictor_lead"
+    },
+    {
+      "hac_lag": 6,
+      "meeting_fixed_effects": true,
+      "name": "FF_to_IEM_offset_minus_1",
+      "offset": -1,
+      "outcome": "delta_iem_t",
+      "predictors": [
+        "delta_iem_{t-1}",
+        "delta_ff_bp_{t+1}",
+        "meeting_fixed_effects"
+      ],
+      "temporal_direction": "future_predictor_lead"
+    },
+    {
+      "hac_lag": 6,
+      "meeting_fixed_effects": true,
+      "name": "IEM_to_FF_offset_minus_1",
+      "offset": -1,
+      "outcome": "delta_ff_bp_t",
+      "predictors": [
+        "delta_ff_bp_{t-1}",
+        "delta_iem_{t+1}",
+        "meeting_fixed_effects"
+      ],
+      "temporal_direction": "future_predictor_lead"
+    },
+    {
+      "hac_lag": 6,
+      "meeting_fixed_effects": true,
+      "name": "FF_to_IEM_offset_0",
+      "offset": 0,
+      "outcome": "delta_iem_t",
+      "predictors": [
+        "delta_iem_{t-1}",
+        "delta_ff_bp_t",
+        "meeting_fixed_effects"
+      ],
+      "temporal_direction": "contemporaneous"
+    },
+    {
+      "hac_lag": 6,
+      "meeting_fixed_effects": true,
+      "name": "IEM_to_FF_offset_0",
+      "offset": 0,
+      "outcome": "delta_ff_bp_t",
+      "predictors": [
+        "delta_ff_bp_{t-1}",
+        "delta_iem_t",
+        "meeting_fixed_effects"
+      ],
+      "temporal_direction": "contemporaneous"
+    },
+    {
+      "hac_lag": 6,
+      "meeting_fixed_effects": true,
+      "name": "FF_to_IEM_offset_1",
+      "offset": 1,
+      "outcome": "delta_iem_t",
+      "predictors": [
+        "delta_iem_{t-1}",
+        "delta_ff_bp_{t-1}",
+        "meeting_fixed_effects"
+      ],
+      "temporal_direction": "past_predictor_lag"
+    },
+    {
+      "hac_lag": 6,
+      "meeting_fixed_effects": true,
+      "name": "IEM_to_FF_offset_1",
+      "offset": 1,
+      "outcome": "delta_ff_bp_t",
+      "predictors": [
+        "delta_ff_bp_{t-1}",
+        "delta_iem_{t-1}",
+        "meeting_fixed_effects"
+      ],
+      "temporal_direction": "past_predictor_lag"
+    },
+    {
+      "hac_lag": 6,
+      "meeting_fixed_effects": true,
+      "name": "FF_to_IEM_offset_2",
+      "offset": 2,
+      "outcome": "delta_iem_t",
+      "predictors": [
+        "delta_iem_{t-1}",
+        "delta_ff_bp_{t-2}",
+        "meeting_fixed_effects"
+      ],
+      "temporal_direction": "past_predictor_lag"
+    },
+    {
+      "hac_lag": 6,
+      "meeting_fixed_effects": true,
+      "name": "IEM_to_FF_offset_2",
+      "offset": 2,
+      "outcome": "delta_ff_bp_t",
+      "predictors": [
+        "delta_ff_bp_{t-1}",
+        "delta_iem_{t-2}",
+        "meeting_fixed_effects"
+      ],
+      "temporal_direction": "past_predictor_lag"
+    }
+  ],
+  "experiment_id": "agent_009_lead_lag_timing_profile",
+  "forbidden_actions": [
+    "Selecting, adding, dropping, reordering, or changing specifications based on statistical significance.",
+    "Selecting offsets, equations, samples, controls, or reporting subsets based on p values, t statistics, coefficient magnitude, or any favorable result.",
+    "Modifying, replacing, deleting, or creating files or source data under validation/.",
+    "Modifying the canonical validated panel or silently substituting another input dataset.",
+    "Bridging excluded temporal gaps.",
+    "Pairing observations across FOMC meeting boundaries.",
+    "Changing the baseline estimator, own-market controls, meeting fixed effects, HAC bandwidth, or offset set.",
+    "Adding unregistered offsets, placebo tests, trimming rules, transformations, or alternative specifications.",
+    "Omitting failed, insufficient, null, reversed, adverse, or non-estimable offset results.",
+    "Overwriting evidence from experiments 002 through 007 or any existing experiment-008 artifacts.",
+    "Treating this experiment as independent confirmation or using it to revise the research interpretation solely because a nominal p value is below 0.05.",
+    "Executing the experiment or modifying implementation artifacts as part of this planning contract."
+  ],
+  "implementation_status": "planned_not_executed",
+  "input_contract": {
+    "canonical_panel_only": true,
+    "required_columns": [
+      "family",
+      "revision_valid",
+      "var_lag_valid",
+      "delta_iem",
+      "delta_ff_bp"
+    ],
+    "validated_data_read_only": true
+  },
+  "interpretation_rules": [
+    "Interpret the profile descriptively and do not select an offset, equation, or subset based on p values or any other favorable result.",
+    "A profile concentrated at contemporaneous or past FF revisions for the IEM equation, together with weak or absent future-predictor and reverse-direction profiles, is consistent with the preregistered timing hypothesis.",
+    "A flat, symmetric, reverse-direction, or future-predictor-dominated profile is adverse evidence against a temporal price-discovery interpretation and supports treating the baseline association as fragile or nonspecific.",
+    "A contemporaneous profile alone cannot distinguish rapid causal transmission from simultaneous responses to common information.",
+    "Offset-specific sample differences must be reported and must not be interpreted as a clean causal comparison.",
+    "Null, reversed, adverse, and non-estimable results remain valid outcomes and must not be discarded.",
+    "Even if the preregistered profile is supported, the result does not establish independent confirmation or causal price discovery because the analysis covers only eight meetings.",
+    "The existing interpretation of the historical exercise as a robustness stress test is unchanged unless materially stronger evidence is established outside this experiment.",
+    "P values and statistical significance are not model-selection criteria and do not determine which results are reported or emphasized."
+  ],
+  "pairing_rules": [
+    "Use the canonical validated historical panel at the frozen path under validation/external/barchart/processed/historical_panel_2002_gap_safe.csv.",
+    "Reproduce the baseline before constructing or estimating any offset-specific model.",
+    "For each outcome at observation t, retain the baseline own-market lag at t-1 unchanged.",
+    "Replace only the baseline cross-market revision regressor with the cross-market revision at t-k.",
+    "Interpret k=0 as contemporaneous, k>0 as a predictor preceding the outcome, and k<0 as a predictor following the outcome.",
+    "Use a shifted predictor only when its source observation exists within the same family or FOMC meeting as the outcome.",
+    "Require the baseline lag observation and the shifted cross-market predictor to be revision-valid.",
+    "Do not pair observations across meeting boundaries, excluded temporal gaps, or unrelated family blocks.",
+    "Preserve the baseline meeting fixed-effect construction and omit no meeting or offset after inspecting results.",
+    "Estimate both directional equations for every pre-specified offset, even when a coefficient is null, reversed, unstable, insufficiently supported, or non-estimable.",
+    "Use HAC covariance with bandwidth 6 and the same within-meeting block handling as the frozen baseline.",
+    "Treat offset-specific samples as distinct samples and report their exact row counts and included-meeting counts."
+  ],
+  "pre_execution_assertions": [
+    "The implementation status remains planned_not_executed until an authorized local execution occurs.",
+    "The canonical panel exists at the frozen input path.",
+    "No file under validation/ is modified, created, deleted, or overwritten.",
+    "The input contains exactly 201 matched levels, 179 revision-valid observations, 160 baseline VAR-valid observations, and 8 meetings.",
+    "The frozen baseline reproduces exactly 160 usable rows and the two required baseline coefficients: 0.7445355822620687 for FF-to-IEM and 0.02009629893361374 for IEM-to-FF, within the frozen tolerance.",
+    "The baseline reproduction completes successfully before any offset-specific estimation begins.",
+    "The only offsets analyzed are -2, -1, 0, 1, and 2.",
+    "Every shifted observation is verified to remain within its original meeting.",
+    "No shifted pair bridges an excluded temporal gap.",
+    "The baseline own-market controls, meeting fixed effects, outcome definitions, and HAC lag are unchanged except for the specified cross-market offset.",
+    "All ten preregistered equation-offset combinations are attempted and retained in the output record.",
+    "Any insufficient-observation or estimation failure is recorded rather than omitted."
+  ],
+  "required_engine_capabilities": [
+    "Load only the canonical historical panel used by the frozen baseline",
+    "Reproduce the frozen baseline estimator and coefficients before any offset analysis",
+    "Construct within-meeting shifted predictors for offsets -2, -1, 0, 1, and 2",
+    "Preserve original within-meeting observation ordering",
+    "Reject shifted pairs that cross meeting boundaries or excluded temporal gaps",
+    "Estimate both directional equations using unchanged baseline own-market controls and meeting fixed effects",
+    "Compute HAC covariance estimates with bandwidth 6 using the baseline block structure",
+    "Report sample size and meeting coverage separately for every equation and offset",
+    "Retain and report insufficient-observation and estimation-failure outcomes",
+    "Record an immutable experiment artifact without overwriting prior evidence"
+  ],
+  "required_outputs": [
+    "An immutable experiment record identified as agent_009_lead_lag_timing_profile.",
+    "The exact implementation reference or command used for execution, without generating or requiring code changes to validation/.",
+    "The canonical input path and input integrity checks.",
+    "The complete baseline reproduction output, including matched levels, valid revisions, usable VAR rows, meeting count, coefficients, standard errors, t statistics, and p values where produced by the frozen estimator.",
+    "For each of the five offsets and both directional equations: offset, temporal direction, coefficient, standard error, sample size, included-meeting count or meeting identifiers, and estimation status.",
+    "Explicit records for insufficient observations, singular design matrices, invalid covariance estimates, or any other estimation failure.",
+    "The complete FF-to-IEM coefficient profile across offsets.",
+    "The complete IEM-to-FF coefficient profile across offsets.",
+    "The offset-by-offset difference between the two directional coefficient profiles, with the direction and calculation defined explicitly.",
+    "A record confirming that every shifted observation remained within its original meeting and that no excluded temporal gap was bridged.",
+    "A record of all attempted specifications, including null, reversed, adverse, and failed outcomes.",
+    "The interpretation classification as descriptive timing-profile evidence only, without changing the status of the eight-meeting exercise as a robustness stress test."
+  ]
+}
