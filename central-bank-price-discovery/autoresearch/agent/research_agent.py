@@ -189,7 +189,31 @@ def freeze_ai_proposal(path, experiment_id):
 def select_next():
     before = set(RUNS.glob("*.json"))
 
-    run([sys.executable, str(SELECTOR)])
+    result = subprocess.run(
+        [sys.executable, str(SELECTOR)],
+        cwd=REPO,
+        text=True,
+        capture_output=True,
+    )
+
+    if result.returncode != 0:
+        combined = (
+            (result.stdout or "")
+            + "\n"
+            + (result.stderr or "")
+        )
+
+        if "no unused candidate experiments remain" in combined.lower():
+            raise subprocess.CalledProcessError(
+                result.returncode,
+                result.args,
+                output=result.stdout,
+                stderr=result.stderr,
+            )
+
+        raise SystemExit(
+            "STOP: selector failed unexpectedly:\n" + combined
+        )
 
     after = set(RUNS.glob("*.json"))
     created = sorted(after - before)
