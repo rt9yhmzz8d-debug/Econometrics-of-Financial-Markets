@@ -19,6 +19,8 @@ PANEL0 = BC / "processed" / "historical_panel_2002_gap_safe.csv"
 parser = argparse.ArgumentParser()
 parser.add_argument("--hac-lag", type=int, default=6)
 parser.add_argument("--experiment-id", default="baseline")
+parser.add_argument("--drop-meeting", default="")
+parser.add_argument("--meeting-fe", choices=["on", "off"], default="on")
 args = parser.parse_args()
 
 if not 0 <= args.hac_lag <= 12:
@@ -26,6 +28,8 @@ if not 0 <= args.hac_lag <= 12:
 
 HAC_LAG = args.hac_lag
 EXPERIMENT_ID = args.experiment_id
+DROP_MEETING = args.drop_meeting.strip()
+MEETING_FE = args.meeting_fe == "on"
 
 # AutoResearch writes only inside its own sandbox.
 OUTPUT = HERE / "outputs" / EXPERIMENT_ID
@@ -79,8 +83,9 @@ def build_system(keep):
             ]
 
             # Meeting fixed effects: first retained meeting omitted.
-            for f in keep[1:]:
-                x.append(1.0 if fam == f else 0.0)
+            if MEETING_FE:
+                for f in keep[1:]:
+                    x.append(1.0 if fam == f else 0.0)
 
             X.append(x)
             yi.append(float(cur["delta_iem"]))
@@ -149,9 +154,19 @@ def estimate(keep):
         "iem_ff_p": pf[1],
     }
 
-full = estimate(families)
+if DROP_MEETING:
+    if DROP_MEETING not in families:
+        raise SystemExit(
+            "STOP: --drop-meeting must be one of: " + ", ".join(families)
+        )
+    ACTIVE_FAMILIES = [f for f in families if f != DROP_MEETING]
+else:
+    ACTIVE_FAMILIES = families
 
-assert full["n"] == 160
+full = estimate(ACTIVE_FAMILIES)
+
+if not DROP_MEETING and MEETING_FE:
+    assert full["n"] == 160
 
 # Holm adjustment across the two historical directional tests.
 tests = sorted([
@@ -168,7 +183,7 @@ for i, (name, p) in enumerate(tests):
     holm[name] = running
 
 # Freeze expected numerical reproduction only for the declared baseline.
-if HAC_LAG == 6:
+if HAC_LAG == 6 and not DROP_MEETING and MEETING_FE:
     assert abs(full["ff_iem_b"] - 0.7445355822620687) < 1e-10
     assert abs(full["ff_iem_p"] - 0.13964990608962932) < 1e-10
     assert abs(full["iem_ff_b"] - 0.02009629893361374) < 1e-10
@@ -194,11 +209,12 @@ with RESULT.open("w", newline="") as f:
 
 lomo = []
 
-for dropped in families:
-    keep = [x for x in families if x != dropped]
-    r = estimate(keep)
-    r["dropped_family"] = dropped
-    lomo.append(r)
+if not DROP_MEETING and MEETING_FE:
+    for dropped in families:
+        keep = [x for x in families if x != dropped]
+        r = estimate(keep)
+        r["dropped_family"] = dropped
+        lomo.append(r)
 
 with LOMO.open("w", newline="") as f:
     fields = [
@@ -211,7 +227,7 @@ with LOMO.open("w", newline="") as f:
     w.writerows(lomo)
 
 print("=== FINAL HISTORICAL REPRODUCTION ===")
-print("meetings:", len(families))
+print("meetings:", len(ACTIVE_FAMILIES))
 print("matched levels:", len(rows))
 print("valid revisions:", valid_revisions)
 print("usable VAR rows:", full["n"])
@@ -226,13 +242,18 @@ print(f"beta={full['iem_ff_b']:.6f}")
 print(f"raw_p={full['iem_ff_p']:.6f}")
 print(f"holm_p={holm['IEM_to_FF']:.6f}")
 print()
-print("REPRODUCTION = PASS")
+if HAC_LAG == 6 and not DROP_MEETING and MEETING_FE:
+    print("REPRODUCTION = PASS")
+else:
+    print("EXPERIMENT = PASS")
 
 
 summary = {
     "experiment_id": EXPERIMENT_ID,
     "hac_lag": HAC_LAG,
-    "meetings": len(families),
+    "drop_meeting": DROP_MEETING or None,
+    "meeting_fixed_effects": MEETING_FE,
+    "meetings": len(ACTIVE_FAMILIES),
     "matched_levels": len(rows),
     "valid_revisions": valid_revisions,
     "usable_var_rows": full["n"],
