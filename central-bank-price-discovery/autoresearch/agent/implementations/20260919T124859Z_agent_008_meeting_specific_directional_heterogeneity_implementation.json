@@ -80,6 +80,15 @@
     "Any estimation failure must be reported rather than silently excluded from the evidence.",
     "The observation-weighted consistency comparison is an aggregation diagnostic and does not establish causal validity or eliminate finite-sample limitations."
   ],
+  "methodological_amendment_pre_execution": {
+    "estimands_changed": false,
+    "hac_lag_changed": false,
+    "issue": "An observation-count-weighted mean of meeting-specific regression coefficients is not generally algebraically equal to the pooled OLS coefficient when controls and meeting fixed effects are present.",
+    "research_design_changed": false,
+    "rule": "Retain the observation-weighted coefficient average as a descriptive aggregation diagnostic only. Its difference from the pooled baseline must not be interpreted as an algebraic consistency failure.",
+    "sign_count_rule_changed": false,
+    "status": "frozen_before_result_observation"
+  },
   "pairing_rules": [
     "Use only the exact canonical historical panel used by the validated baseline.",
     "Within each meeting family, pair each current observation with the immediately preceding observation in that same meeting block.",
