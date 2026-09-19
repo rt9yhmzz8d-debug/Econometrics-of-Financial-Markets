@@ -301,7 +301,7 @@ def propose():
                                     "type": "array",
                                     "items": {"type": "string"}
                                 },
-                                "parameters": {"type": "object"}
+                                "parameters": {"type": "object", "additionalProperties": False}
                             },
                             "required": [
                                 "analysis_type",
