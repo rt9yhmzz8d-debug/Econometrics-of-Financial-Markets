@@ -1,0 +1,66 @@
+{
+  "execution_requirements": [
+    "Implement as a new reproducible script under central-bank-price-discovery/autoresearch/.",
+    "Record the baseline reproduction, complete-case counts, meeting coverage, coefficients, standard errors, and lead-minus-lag contrasts in a new immutable run record.",
+    "Verify that every constructed pair belongs to one meeting and that no excluded temporal gap is crossed.",
+    "Do not alter files under central-bank-price-discovery/validation/.",
+    "Store code, parameters, environment details, and output evidence so the run is deterministic and auditable."
+  ],
+  "expected_information_gain": "This experiment distinguishes directional temporal predictability from contemporaneous comovement and from a relationship that is equally strong when time is reversed. A coherent lag-dominant pattern across offsets would provide stronger robustness evidence for temporal ordering, while a symmetric, lead-dominant, or unstable pattern would identify an important limitation of the baseline interpretation.",
+  "experiment_id": "agent_008_lead_lag_symmetry",
+  "falsifiable_hypothesis": "If the historical relationship reflects directional temporal price discovery, the within-meeting cross-market coefficient for lagged Fed Funds futures revisions in the IEM equation should be larger and more consistently signed than the corresponding coefficient for future Fed Funds futures revisions. The analogous reverse-direction coefficient should not show the same forward-looking asymmetry.",
+  "interpretation_if_not_supported": "If lead coefficients are comparable to or larger than lag coefficients, or if the ordering changes across offsets or meetings, the baseline FF-to-IEM estimate should not be interpreted as clean directional price discovery. The result would instead support an interpretation involving contemporaneous comovement, timing ambiguity, measurement alignment, or weak identification.",
+  "interpretation_if_supported": "If lagged Fed Funds futures revisions consistently dominate their future-value placebos in predicting IEM revisions, while the reverse direction does not show the same pattern, the evidence for temporal ordering would strengthen. It would still remain a robustness stress test because the analysis covers only eight meetings and does not establish independent confirmation.",
+  "limitations": [
+    "The eight-meeting sample limits meeting-level generalisation and may produce sparse pairs at larger offsets.",
+    "Adjacent observations may be irregularly timed, so observation offsets are not identical calendar-time horizons.",
+    "Lead-lag regressions remain observational and cannot rule out common information arrival or market microstructure effects.",
+    "Meeting fixed effects and HAC inference do not eliminate sensitivity to the small number of meetings.",
+    "The experiment uses the same historical source data and therefore cannot provide an independent sample confirmation."
+  ],
+  "method": {
+    "analysis_type": "Within-meeting distributed lead-lag regression and temporal-ordering falsification",
+    "inputs": [
+      "Validated matched IEM and Fed Funds futures revision data underlying the historical baseline",
+      "The same transformed revision series and baseline usable-observation construction used to reproduce the 160-row VAR sample",
+      "Meeting identifiers and observation ordering used by the baseline"
+    ],
+    "parameters": {
+      "covariance": "HAC with bandwidth 6, matching the baseline where estimable",
+      "directional_comparisons": [
+        "lagged FF revision predicting IEM revision versus lead FF revision predicting IEM revision",
+        "lagged IEM revision predicting FF revision versus lead IEM revision predicting FF revision"
+      ],
+      "fixed_effects": "meeting fixed effects",
+      "offsets": [
+        1,
+        2,
+        3
+      ],
+      "sample_rule": "complete within-meeting pairs only; no cross-meeting or cross-gap pairing",
+      "selection_rule": "all pre-specified offsets and both temporal directions must be reported"
+    },
+    "steps": [
+      "Reproduce the baseline sample and both baseline HAC(6), meeting-fixed-effect coefficients before constructing any new estimates.",
+      "Within each FOMC meeting only, order observations exactly as in the validated baseline and construct cross-market revision pairs at offsets k = 1, 2, and 3 observations.",
+      "For each offset, estimate an IEM equation using Fed Funds futures revisions at t-k and t+k separately, and estimate a Fed Funds futures equation using IEM revisions at t-k and t+k separately.",
+      "Use the same meeting fixed effects, baseline controls, transformation conventions, and HAC(6) covariance convention as the baseline wherever defined; do not pair observations across meeting boundaries or excluded temporal gaps.",
+      "For every offset and direction, report the coefficient, standard error, sign, number of usable pairs, and meeting coverage. Report the difference between the lag coefficient and the corresponding lead coefficient as a descriptive temporal-asymmetry measure.",
+      "Evaluate the pre-registered directional pattern using coefficient ordering and sign stability across k = 1, 2, and 3, not by selecting offsets or specifications based on p-values.",
+      "Retain all offsets, including those with null, reversed, or unstable signs, and preserve the baseline estimates alongside the new results."
+    ]
+  },
+  "motivation": "The existing evidence includes permutation, circular-shift, influence, and specification-robustness analyses, but a direct lead-versus-lag comparison provides a distinct identification stress test. A directional relationship should have a temporal ordering that is not reproduced when the putative predictor is taken from the future. This experiment also clarifies whether the baseline estimate is concentrated at the chosen temporal offset rather than representing broad within-meeting comovement.",
+  "protected_invariants": [
+    "160-row baseline reproduced before analysis",
+    "validated data read only",
+    "meeting boundaries preserved",
+    "excluded temporal gaps are never bridged",
+    "null results retained",
+    "no significance optimisation",
+    "all pre-specified offsets reported",
+    "baseline estimates are not overwritten"
+  ],
+  "research_question": "Does the apparent Fed Funds futures to IEM price-discovery relationship occur specifically from earlier Fed Funds futures revisions predicting later IEM revisions, rather than from contemporaneous association or future Fed Funds futures predicting earlier IEM revisions?",
+  "title": "Pre-specified lead-lag symmetry and anticipation falsification"
+}
