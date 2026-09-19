@@ -83,59 +83,32 @@ def build_baseline():
     return obs, families
 
 def estimate(obs, families):
-    family_index = {fam: i for i, fam in enumerate(families)}
-
-    y_iem = np.array([r["iem_revision"] for r in obs], dtype=float)
-    y_ff = np.array([r["ff_revision"] for r in obs], dtype=float)
-
-    x_ff_iem = []
-    x_iem_ff = []
+    X = []
+    yi = []
+    yf = []
 
     for r in obs:
-        dummies = [
-            1.0 if family_index[r["family"]] == j else 0.0
-            for j in range(1, len(families))
+        x = [
+            1.0,
+            r["lag_iem"],
+            r["lag_ff"],
         ]
 
-        x_ff_iem.append([
-            1.0,
-            r["lag_iem_revision"],
-            r["lag_ff_revision"],
-            *dummies,
-        ])
+        for fam in families[1:]:
+            x.append(1.0 if r["family"] == fam else 0.0)
 
-        x_iem_ff.append([
-            1.0,
-            r["lag_ff_revision"],
-            r["lag_iem_revision"],
-            *dummies,
-        ])
+        X.append(x)
+        yi.append(r["cur_iem"])
+        yf.append(r["cur_ff"])
 
-    fit_ff_iem = sm.OLS(
-        y_iem,
-        np.asarray(x_ff_iem, dtype=float),
-    ).fit(
-        cov_type="HAC",
-        cov_kwds={"maxlags": 6},
-    )
+    X = np.asarray(X, dtype=float)
+    yi = np.asarray(yi, dtype=float)
+    yf = np.asarray(yf, dtype=float)
 
-    fit_iem_ff = sm.OLS(
-        y_ff,
-        np.asarray(x_iem_ff, dtype=float),
-    ).fit(
-        cov_type="HAC",
-        cov_kwds={"maxlags": 6},
-    )
+    bi = np.linalg.lstsq(X, yi, rcond=None)[0]
+    bf = np.linalg.lstsq(X, yf, rcond=None)[0]
 
-    return (
-        float(fit_ff_iem.params[2]),
-        float(fit_iem_ff.params[2]),
-    )
-
-
-def key(r):
-    return (r["family"], r["date"])
-
+    return float(bi[2]), float(bf[1])
 
 def rankings():
     with INFLUENCE.open(newline="") as f:
