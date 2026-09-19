@@ -1,0 +1,166 @@
+{
+  "experiment": "agent_007_joint_symmetric_trim",
+  "run_id": "20260919T115244Z",
+  "preregistered_run": "20260919T115244Z_experiment007.json",
+  "baseline": {
+    "n": 160,
+    "FF_to_IEM_beta": 0.7445355822620644,
+    "IEM_to_FF_beta": 0.02009629893361316
+  },
+  "design": {
+    "ranking_rule": "maximum normalised absolute leave-one-out coefficient change across the two directions",
+    "trim_counts": [
+      1,
+      3,
+      5,
+      10
+    ],
+    "same_rows_removed_from_both_equations": true,
+    "hac_lag": 6,
+    "meeting_fixed_effects": true,
+    "source": "influence_rows_004.csv"
+  },
+  "results": [
+    {
+      "trim_count": 1,
+      "n": 159,
+      "removed": [
+        {
+          "family": "51:1102",
+          "date": "2002-10-07"
+        }
+      ],
+      "FF_to_IEM": {
+        "beta": 1.1888457189949342,
+        "change_from_baseline": 0.4443101367328698,
+        "sign_preserved": true
+      },
+      "IEM_to_FF": {
+        "beta": 0.016519768453051434,
+        "change_from_baseline": -0.003576530480561727,
+        "sign_preserved": true
+      }
+    },
+    {
+      "trim_count": 3,
+      "n": 157,
+      "removed": [
+        {
+          "family": "51:1102",
+          "date": "2002-10-07"
+        },
+        {
+          "family": "51:1102",
+          "date": "2002-10-08"
+        },
+        {
+          "family": "51:1102",
+          "date": "2002-10-28"
+        }
+      ],
+      "FF_to_IEM": {
+        "beta": 0.9666706663379694,
+        "change_from_baseline": 0.222135084075905,
+        "sign_preserved": true
+      },
+      "IEM_to_FF": {
+        "beta": 0.03077163803018344,
+        "change_from_baseline": 0.010675339096570279,
+        "sign_preserved": true
+      }
+    },
+    {
+      "trim_count": 5,
+      "n": 155,
+      "removed": [
+        {
+          "family": "51:0802",
+          "date": "2002-07-29"
+        },
+        {
+          "family": "51:1102",
+          "date": "2002-10-07"
+        },
+        {
+          "family": "51:1102",
+          "date": "2002-10-08"
+        },
+        {
+          "family": "51:1102",
+          "date": "2002-10-28"
+        },
+        {
+          "family": "51:1102",
+          "date": "2002-11-01"
+        }
+      ],
+      "FF_to_IEM": {
+        "beta": 0.6580196098839203,
+        "change_from_baseline": -0.08651597237814412,
+        "sign_preserved": true
+      },
+      "IEM_to_FF": {
+        "beta": 0.01823107224037021,
+        "change_from_baseline": -0.0018652266932429502,
+        "sign_preserved": true
+      }
+    },
+    {
+      "trim_count": 10,
+      "n": 150,
+      "removed": [
+        {
+          "family": "51:0102",
+          "date": "2002-01-14"
+        },
+        {
+          "family": "51:0102",
+          "date": "2002-01-18"
+        },
+        {
+          "family": "51:0802",
+          "date": "2002-07-29"
+        },
+        {
+          "family": "51:1102",
+          "date": "2002-10-07"
+        },
+        {
+          "family": "51:1102",
+          "date": "2002-10-08"
+        },
+        {
+          "family": "51:1102",
+          "date": "2002-10-10"
+        },
+        {
+          "family": "51:1102",
+          "date": "2002-10-11"
+        },
+        {
+          "family": "51:1102",
+          "date": "2002-10-28"
+        },
+        {
+          "family": "51:1102",
+          "date": "2002-11-01"
+        },
+        {
+          "family": "51:1102",
+          "date": "2002-11-04"
+        }
+      ],
+      "FF_to_IEM": {
+        "beta": 0.426796315783395,
+        "change_from_baseline": -0.3177392664786694,
+        "sign_preserved": true
+      },
+      "IEM_to_FF": {
+        "beta": 0.0067828129301340835,
+        "change_from_baseline": -0.013313486003479078,
+        "sign_preserved": true
+      }
+    }
+  ],
+  "interpretation_rule": "Report all preregistered trim counts regardless of direction, magnitude or statistical attractiveness."
+}
