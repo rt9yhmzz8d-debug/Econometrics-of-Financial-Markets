@@ -1,0 +1,258 @@
+{
+  "experiment": "agent_006_influence_trim",
+  "run_id": "20260919T115018Z",
+  "preregistered_run": "20260919T115018Z.json",
+  "baseline": {
+    "n": 160,
+    "FF_to_IEM_beta": 0.7445355822620644,
+    "IEM_to_FF_beta": 0.02009629893361316
+  },
+  "design": {
+    "baseline_rows": 160,
+    "directions": [
+      "FF_to_IEM",
+      "IEM_to_FF"
+    ],
+    "hac_lag": 6,
+    "meeting_fixed_effects": true,
+    "ranking_rule": "absolute leave-one-out coefficient change",
+    "source": "influence_rows_004.csv",
+    "trim_counts": [
+      1,
+      3,
+      5,
+      10
+    ]
+  },
+  "results": [
+    {
+      "trim_count": 1,
+      "FF_to_IEM": {
+        "n": 159,
+        "beta": 1.1888457189949342,
+        "change_from_baseline": 0.4443101367328698,
+        "sign_preserved": true,
+        "removed": [
+          {
+            "family": "51:1102",
+            "date": "2002-10-07"
+          }
+        ]
+      },
+      "IEM_to_FF": {
+        "n": 159,
+        "beta": 0.028871260484946346,
+        "change_from_baseline": 0.008774961551333185,
+        "sign_preserved": true,
+        "removed": [
+          {
+            "family": "51:1102",
+            "date": "2002-10-08"
+          }
+        ]
+      }
+    },
+    {
+      "trim_count": 3,
+      "FF_to_IEM": {
+        "n": 157,
+        "beta": 0.9825669314870035,
+        "change_from_baseline": 0.23803134922493907,
+        "sign_preserved": true,
+        "removed": [
+          {
+            "family": "51:0102",
+            "date": "2002-01-14"
+          },
+          {
+            "family": "51:1102",
+            "date": "2002-10-07"
+          },
+          {
+            "family": "51:1102",
+            "date": "2002-11-01"
+          }
+        ]
+      },
+      "IEM_to_FF": {
+        "n": 157,
+        "beta": 0.02747767049877489,
+        "change_from_baseline": 0.007381371565161728,
+        "sign_preserved": true,
+        "removed": [
+          {
+            "family": "51:1102",
+            "date": "2002-10-08"
+          },
+          {
+            "family": "51:1102",
+            "date": "2002-10-28"
+          },
+          {
+            "family": "51:1102",
+            "date": "2002-11-01"
+          }
+        ]
+      }
+    },
+    {
+      "trim_count": 5,
+      "FF_to_IEM": {
+        "n": 155,
+        "beta": 0.7703607101068295,
+        "change_from_baseline": 0.025825127844765094,
+        "sign_preserved": true,
+        "removed": [
+          {
+            "family": "51:0102",
+            "date": "2002-01-14"
+          },
+          {
+            "family": "51:1102",
+            "date": "2002-10-07"
+          },
+          {
+            "family": "51:1102",
+            "date": "2002-10-08"
+          },
+          {
+            "family": "51:1102",
+            "date": "2002-10-11"
+          },
+          {
+            "family": "51:1102",
+            "date": "2002-11-01"
+          }
+        ]
+      },
+      "IEM_to_FF": {
+        "n": 155,
+        "beta": 0.020403814977555175,
+        "change_from_baseline": 0.00030751604394201396,
+        "sign_preserved": true,
+        "removed": [
+          {
+            "family": "51:0802",
+            "date": "2002-07-29"
+          },
+          {
+            "family": "51:1102",
+            "date": "2002-10-08"
+          },
+          {
+            "family": "51:1102",
+            "date": "2002-10-10"
+          },
+          {
+            "family": "51:1102",
+            "date": "2002-10-28"
+          },
+          {
+            "family": "51:1102",
+            "date": "2002-11-01"
+          }
+        ]
+      }
+    },
+    {
+      "trim_count": 10,
+      "FF_to_IEM": {
+        "n": 150,
+        "beta": 0.6354063587897061,
+        "change_from_baseline": -0.10912922347235832,
+        "sign_preserved": true,
+        "removed": [
+          {
+            "family": "51:0102",
+            "date": "2002-01-14"
+          },
+          {
+            "family": "51:0102",
+            "date": "2002-01-17"
+          },
+          {
+            "family": "51:0102",
+            "date": "2002-01-18"
+          },
+          {
+            "family": "51:0102",
+            "date": "2002-01-24"
+          },
+          {
+            "family": "51:0102",
+            "date": "2002-01-29"
+          },
+          {
+            "family": "51:0802",
+            "date": "2002-07-30"
+          },
+          {
+            "family": "51:1102",
+            "date": "2002-10-07"
+          },
+          {
+            "family": "51:1102",
+            "date": "2002-10-08"
+          },
+          {
+            "family": "51:1102",
+            "date": "2002-10-11"
+          },
+          {
+            "family": "51:1102",
+            "date": "2002-11-01"
+          }
+        ]
+      },
+      "IEM_to_FF": {
+        "n": 150,
+        "beta": -0.0012094080238816043,
+        "change_from_baseline": -0.021305706957494765,
+        "sign_preserved": false,
+        "removed": [
+          {
+            "family": "51:0102",
+            "date": "2002-01-14"
+          },
+          {
+            "family": "51:0102",
+            "date": "2002-01-18"
+          },
+          {
+            "family": "51:0802",
+            "date": "2002-07-16"
+          },
+          {
+            "family": "51:0802",
+            "date": "2002-07-29"
+          },
+          {
+            "family": "51:1102",
+            "date": "2002-10-07"
+          },
+          {
+            "family": "51:1102",
+            "date": "2002-10-08"
+          },
+          {
+            "family": "51:1102",
+            "date": "2002-10-10"
+          },
+          {
+            "family": "51:1102",
+            "date": "2002-10-28"
+          },
+          {
+            "family": "51:1102",
+            "date": "2002-11-01"
+          },
+          {
+            "family": "51:1102",
+            "date": "2002-11-04"
+          }
+        ]
+      }
+    }
+  ],
+  "interpretation_rule": "Report all preregistered trim counts regardless of direction, magnitude or statistical attractiveness."
+}
