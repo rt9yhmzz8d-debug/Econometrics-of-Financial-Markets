@@ -1,0 +1,47 @@
+{
+  "experiment": "temporal_permutation_002",
+  "frozen_parent_checkpoint": "ec15070",
+  "seed": 3150,
+  "permutations": 1000,
+  "meetings": 8,
+  "usable_var_rows_per_draw": 160,
+  "null_design": "Jointly permute paired IEM and Fed Funds revisions within each meeting, preserving contemporaneous joint distributions and meeting identity while destroying chronological lead-lag ordering.",
+  "baseline": {
+    "FF_to_IEM_beta": 0.7445355822620687,
+    "IEM_to_FF_beta": 0.02009629893361374
+  },
+  "FF_to_IEM": {
+    "baseline_beta": 0.7445355822620687,
+    "placebo_mean": -0.04067270109531075,
+    "placebo_sd": 0.8882657548114281,
+    "exceedances": 198,
+    "empirical_p": 0.198,
+    "empirical_p_plus1": 0.19880119880119881,
+    "quantiles": {
+      "q01": -2.0986565559048276,
+      "q025": -1.725625623842144,
+      "q05": -1.4825031747858954,
+      "median": -0.06310928821070323,
+      "q95": 1.3950122205993147,
+      "q975": 1.6713485001139867,
+      "q99": 1.8829862744126094
+    }
+  },
+  "IEM_to_FF": {
+    "baseline_beta": 0.02009629893361374,
+    "placebo_mean": -0.0012517247653062694,
+    "placebo_sd": 0.017713866247817855,
+    "exceedances": 117,
+    "empirical_p": 0.117,
+    "empirical_p_plus1": 0.11788211788211789,
+    "quantiles": {
+      "q01": -0.041625434093514845,
+      "q025": -0.03370556297810171,
+      "q05": -0.02992031086465148,
+      "median": -0.0007652423944522101,
+      "q95": 0.02660404544193359,
+      "q975": 0.030929862016338724,
+      "q99": 0.03733664949714367
+    }
+  }
+}
