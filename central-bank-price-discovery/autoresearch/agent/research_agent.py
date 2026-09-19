@@ -62,7 +62,7 @@ def load(path):
 
 
 def freeze(path, message):
-    run(["git", "add", str(path.relative_to(REPO))])
+    run(["git", "add", "-f", str(path.relative_to(REPO))])
     run(["git", "commit", "-m", message])
 
 
