@@ -1,0 +1,27 @@
+{
+  "baseline": {
+    "FF_to_IEM_beta": 0.7445355822620687,
+    "IEM_to_FF_beta": 0.02009629893361374,
+    "matched_levels": 201,
+    "meetings": 8,
+    "usable_var_rows": 160,
+    "valid_revisions": 179
+  },
+  "branch": "autoresearch-agent-006",
+  "constraints": {
+    "no_automatic_merge": true,
+    "no_automatic_push": true,
+    "optimise_for_significance": false,
+    "record_null_results": true,
+    "validated_data_read_only": true
+  },
+  "created_at_utc": "2026-09-19T11:49:37.392073+00:00",
+  "evaluation": null,
+  "execution": null,
+  "foundation_sha256": "a9924dc58f5d9200738748203572f37a73711f98a0996fd79fa4109a73ba21d0",
+  "parent_checkpoint": "8ecd279",
+  "proposal": null,
+  "run_id": "20260919T114937Z",
+  "starting_commit": "886a1ecce6c356c62a4a53a422e56190e45e47e3",
+  "status": "planned"
+}
