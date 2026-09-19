@@ -1,0 +1,52 @@
+{
+  "execution_requirements": [
+    "Run locally using the frozen baseline construction and estimation code.",
+    "Write a new reproducible experiment record without overwriting prior evidence.",
+    "Store the exact transformed row identifiers, reversal mapping, baseline reproduction checks, reversed estimates, and preregistered comparison statistic.",
+    "Confirm that no observation from one meeting is used to construct a lag or lead for another meeting."
+  ],
+  "expected_information_gain": "This experiment distinguishes dependence on temporal ordering from dependence on contemporaneous co-movement and meeting-specific composition. A reversal-induced attenuation or sign change would support the interpretation that the baseline asymmetry contains temporal information. Persistence of the same directional contrast would be evidence against that interpretation, even if individual coefficients remain statistically different from zero.",
+  "experiment_id": "agent_009_within_meeting_time_reversal",
+  "falsifiable_hypothesis": "If the directional relationship reflects genuine temporal ordering, reversing the chronological order separately within each meeting before constructing VAR lags will substantially weaken or reverse the directional contrast between the FF-to-IEM and IEM-to-FF coefficients. The primary contrast is D = beta(FF-to-IEM) - beta(IEM-to-FF); the preregistered directional prediction is D_reversed <= 0 when D_baseline > 0. A positive D_reversed is an adverse falsification result.",
+  "interpretation_if_not_supported": "If D_reversed remains positive and similar in magnitude to D_baseline, the apparent directional asymmetry is not demonstrably dependent on temporal ordering. This would favor an interpretation involving contemporaneous co-movement, meeting-level structure, persistence, or estimator artifacts and would weaken claims of temporal price discovery. A noisy or intermediate result will be reported as inconclusive rather than classified as support.",
+  "interpretation_if_supported": "If D_reversed is nonpositive while the baseline D is positive, the result is consistent with a time-oriented component of the baseline directional relationship. It would strengthen the robustness case but would not convert the eight-meeting exercise into independent confirmation, because the reversal is still an internal falsification applied to the same historical sample.",
+  "limitations": [
+    "Only eight meetings are available, so the experiment cannot establish broad external validity.",
+    "Time reversal is a structured placebo and does not reproduce the full data-generating process under the null.",
+    "Reversing observations can alter the relationship between persistence and lagged regressors in ways that are not economically realistic.",
+    "The same historical observations are used for baseline and falsification, so this is not independent confirmation.",
+    "HAC inference with eight meeting clusters remains a small-sample concern; coefficient comparisons are the primary outcome rather than p-values."
+  ],
+  "method": {
+    "analysis_type": "Deterministic within-meeting temporal-reversal falsification using the baseline VAR and HAC(6) meeting-fixed-effect estimator",
+    "inputs": [
+      "Frozen validated matched historical levels and valid revisions from the read-only validation data",
+      "Meeting identifiers and chronological timestamps used by the validated baseline construction",
+      "The validated baseline row-construction and estimation implementation",
+      "Baseline coefficients beta(FF-to-IEM) = 0.7445355822620687 and beta(IEM-to-FF) = 0.02009629893361374 for comparison"
+    ],
+    "parameters": {},
+    "steps": [
+      "Reproduce the validated baseline and verify 201 matched levels, 179 valid revisions, 160 usable VAR rows, 8 meetings, and the two published baseline coefficients before transforming any data.",
+      "For each meeting independently, reverse the chronological order of the frozen matched observations. Do not reverse or connect observations across meeting boundaries or excluded temporal gaps.",
+      "Construct VAR lagged variables after the reversal, using the same row eligibility rules as the baseline. This ensures that reversed lags represent the intended placebo ordering rather than retaining original lags.",
+      "Estimate the same two directional equations with the same meeting fixed effects and HAC bandwidth of 6 used for the baseline.",
+      "Report the reversed-sample usable-row count, both coefficients, standard errors, the directional contrast D, and the changes from the baseline coefficients.",
+      "Evaluate the preregistered directional criterion using coefficient values rather than p-values: compare the sign of D_reversed with the sign of D_baseline. Also retain the continuous ratio D_reversed / D_baseline and all adverse or ambiguous outcomes.",
+      "Repeat the transformation exactly once with no tuning, alternative windows, selective meeting exclusion, or result-based specification changes."
+    ]
+  },
+  "motivation": "Existing temporal permutation and circular-shift tests disrupt temporal dependence in different ways. A within-meeting time reversal provides a distinct falsification: it preserves each meeting's observations, marginal distributions, meeting boundaries, and much of its dependence structure while reversing the direction of temporal ordering. If the baseline asymmetry is unchanged, that would weaken a temporal price-discovery interpretation and suggest contemporaneous association, meeting composition, or estimator artifacts.",
+  "protected_invariants": [
+    "160-row baseline reproduced before analysis",
+    "validated data read only",
+    "meeting boundaries preserved",
+    "excluded temporal gaps are never bridged",
+    "lag construction is performed after reversal",
+    "the baseline HAC(6) and meeting-fixed-effect estimator are unchanged",
+    "null, adverse, and ambiguous results are retained",
+    "no significance optimisation"
+  ],
+  "research_question": "Does the estimated FF-to-IEM directional relationship depend on the original temporal ordering of observations within FOMC meetings, rather than only on contemporaneous co-movement or meeting-specific levels?",
+  "title": "Within-meeting time-reversal falsification of directional price discovery"
+}
