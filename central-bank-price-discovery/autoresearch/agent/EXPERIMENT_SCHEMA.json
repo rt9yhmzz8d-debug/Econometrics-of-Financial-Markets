@@ -1,0 +1,28 @@
+{
+  "required_fields": [
+    "experiment_id",
+    "research_question",
+    "falsifiable_hypothesis",
+    "parent_checkpoint",
+    "method",
+    "protected_invariants",
+    "result",
+    "interpretation",
+    "limitations",
+    "status"
+  ],
+  "allowed_status": [
+    "proposed",
+    "running",
+    "passed",
+    "failed",
+    "rejected"
+  ],
+  "principles": {
+    "optimise_for_significance": false,
+    "record_null_results": true,
+    "record_failed_experiments": true,
+    "overwrite_previous_evidence": false,
+    "baseline_reproduction_required": true
+  }
+}

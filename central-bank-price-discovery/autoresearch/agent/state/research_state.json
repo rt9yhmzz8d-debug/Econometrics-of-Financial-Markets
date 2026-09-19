@@ -1,0 +1,22 @@
+{
+  "release": "006",
+  "parent_checkpoint": "8ecd279",
+  "mode": "bounded_autonomous_research",
+  "next_experiment_number": 6,
+  "baseline": {
+    "matched_levels": 201,
+    "valid_revisions": 179,
+    "usable_var_rows": 160,
+    "meetings": 8,
+    "FF_to_IEM_beta": 0.7445355822620687,
+    "IEM_to_FF_beta": 0.02009629893361374
+  },
+  "completed_experiments": [
+    "002_temporal_permutation",
+    "003_circular_shift",
+    "004_observation_influence",
+    "005_specification_multiverse"
+  ],
+  "current_interpretation": "Historical eight-meeting analysis is a robustness stress test, not independent confirmation.",
+  "optimise_for_significance": false
+}
