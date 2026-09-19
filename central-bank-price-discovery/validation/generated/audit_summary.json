@@ -1,0 +1,62 @@
+{
+  "baseline_commit": "e5928a751856e59816342085dd76f33a8ac5ee79",
+  "input_sha256": "7bcb3f5db08b4af027ece0e6b4de1f5e1cbd9a52cae9722e980a51a24c96ac95",
+  "input_matches_checked_baseline": true,
+  "review_file_sha256": "a352b1824c6a0fc79014a800c13d7f733e673a98fe2642eae2dc49912c96c55f",
+  "requests": 312,
+  "http_successes": 312,
+  "requests_with_rows": 196,
+  "raw_rows": 31668,
+  "clean_rows": 31667,
+  "contracts": 353,
+  "families_total": 113,
+  "meeting_interval_families": 107,
+  "quarterly_families": 6,
+  "quarterly_rows": 5262,
+  "split_families": [
+    "20:0300",
+    "20:0500",
+    "20:0501",
+    "51:1008",
+    "51:1201",
+    "51:1208"
+  ],
+  "ordinary_meeting_interval_families": 101,
+  "ordinary_meeting_interval_rows": 24977,
+  "ordinary_meeting_interval_contracts": 303,
+  "zero_quantity_rows": 19510,
+  "zero_quantity_changed_last_price_rows": 263,
+  "zero_quantity_changed_last_price_contracts": 98,
+  "meeting_interval_zero_quantity_changed_last_price_rows": 247,
+  "zero_quantity_changed_rows_with_nonzero_daily_low_or_high": 208,
+  "legacy_quarterly_zero_reappearances_2016_06_01": 16,
+  "families_without_positive_quantity": [
+    "51:0717",
+    "51:0917",
+    "51:1017",
+    "51:1217"
+  ],
+  "source_checked_families": [
+    "51:1101"
+  ],
+  "pilot": {
+    "family": "51:1101",
+    "meeting_date": "2001-11-06",
+    "contract_rows": 108,
+    "daily_snapshots": 36,
+    "diagnostic_pass_days": 32,
+    "diagnostic_reasons": {
+      "incoherent_raw_sum": 2,
+      "meeting_day_or_later": 2
+    }
+  },
+  "econometrics_ready": false,
+  "blockers": [
+    "Resolve changed last-trade prices on zero-quantity source rows; positive-quantity carry is only a diagnostic assumption.",
+    "Review remaining contract definitions, original-market intermeeting treatment and calendar mappings.",
+    "Obtain actual six-family spin-off bulletins; labels do not establish exact payoff magnitudes.",
+    "Keep quarterly families out of a single-meeting study until their separate horizon is handled.",
+    "Supply and validate matching futures contracts, timestamps, price fields, settlement horizon and daily close alignment.",
+    "Reproduce the paired sample and gap-safe lags before fitting the frozen models."
+  ]
+}
