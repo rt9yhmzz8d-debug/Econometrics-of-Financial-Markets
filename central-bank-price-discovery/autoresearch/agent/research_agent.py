@@ -12,6 +12,8 @@ RUNS = HERE / "runs"
 OUTPUTS = HERE / "outputs"
 
 SELECTOR = HERE / "select_next_experiment.py"
+AI_RESEARCHER = HERE / "ai_researcher.py"
+EXPERIMENTS = HERE / "experiments"
 
 EXPECTED_BRANCH = "autoresearch-agent-006"
 
@@ -108,6 +110,80 @@ def pending_preregistered_run():
     )
 
     return pending[-1][0]
+
+
+def latest_ai_proposal():
+    files = sorted(
+        EXPERIMENTS.glob("*_ai_proposal.json"),
+        key=lambda x: x.stat().st_mtime,
+    )
+    return files[-1] if files else None
+
+
+def proposal_has_evidence(experiment_id):
+    for path in OUTPUTS.rglob("evidence.json"):
+        try:
+            evidence = load(path)
+        except Exception:
+            continue
+
+        evidence_id = (
+            evidence.get("experiment_id")
+            or (evidence.get("metadata") or {}).get("experiment_id")
+        )
+
+        if evidence_id == experiment_id:
+            return True
+
+    return False
+
+
+def generate_ai_proposal():
+    """Generate exactly one new methodological proposal.
+
+    This stage may call the research model, but it must not execute an
+    econometric experiment or modify validated source data.
+    """
+    before = set(EXPERIMENTS.glob("*_ai_proposal.json"))
+
+    run([
+        sys.executable,
+        str(AI_RESEARCHER),
+        "propose",
+    ])
+
+    after = set(EXPERIMENTS.glob("*_ai_proposal.json"))
+    created = sorted(after - before)
+
+    if len(created) != 1:
+        raise SystemExit(
+            "STOP: AI researcher did not create exactly one proposal"
+        )
+
+    proposal_path = created[0]
+    proposal = load(proposal_path)
+
+    experiment_id = proposal.get("experiment_id")
+
+    if not experiment_id:
+        raise SystemExit(
+            "STOP: AI proposal missing experiment_id"
+        )
+
+    if proposal_has_evidence(experiment_id):
+        raise SystemExit(
+            "STOP: AI proposed an experiment that already has evidence: "
+            + experiment_id
+        )
+
+    return proposal_path, proposal
+
+
+def freeze_ai_proposal(path, experiment_id):
+    freeze(
+        path,
+        f"Preregister AI-proposed {experiment_id}",
+    )
 
 
 def select_next():
@@ -224,9 +300,50 @@ def cycle(dry_run=False):
         record = validate_selected_record(selected)
         newly_selected = False
     else:
-        selected = select_next()
-        record = validate_selected_record(selected)
-        newly_selected = True
+        try:
+            selected = select_next()
+            record = validate_selected_record(selected)
+            newly_selected = True
+        except subprocess.CalledProcessError as exc:
+            # Fail closed on selector bugs. Only candidate exhaustion may
+            # hand control to the AI proposal stage.
+            combined = (
+                (exc.stdout or "")
+                + "\n"
+                + (exc.stderr or "")
+            )
+
+            exhaustion_message = (
+                "no unused candidate experiments remain"
+            )
+
+            if exhaustion_message not in combined.lower():
+                raise
+
+            print(
+                "finite candidate selector exhausted; "
+                "requesting new AI research proposal"
+            )
+
+            proposal_path, proposal = generate_ai_proposal()
+            exp = proposal["experiment_id"]
+
+            print("AI proposal:", exp)
+            print("proposal:", proposal_path.relative_to(REPO))
+
+            # Freeze the scientific question before implementation or
+            # econometric results are generated.
+            freeze_ai_proposal(
+                proposal_path,
+                exp,
+            )
+
+            print("AI proposal preregistration: FROZEN")
+            print(
+                "STOP: proposal frozen. Implementation planning and "
+                "execution require a subsequent stage."
+            )
+            return
 
     exp = record["selected_experiment"]["experiment_id"]
 
