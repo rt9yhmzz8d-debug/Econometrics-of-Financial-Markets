@@ -289,6 +289,7 @@ def propose():
                         "motivation": {"type": "string"},
                         "method": {
                             "type": "object",
+                            "additionalProperties": False,
                             "properties": {
                                 "analysis_type": {"type": "string"},
                                 "inputs": {
