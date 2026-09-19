@@ -1,0 +1,336 @@
+{
+  "research_question": "Who prices the Fed first?",
+  "interpretation_rule": "Treat the 8-meeting historical sample as an independent robustness/stress-test sample. Do not search for significance.",
+  "baseline": {
+    "experiment_id": "HAC_06",
+    "hac_lag": 6,
+    "drop_meeting": null,
+    "meeting_fixed_effects": true,
+    "meetings": 8,
+    "matched_levels": 201,
+    "valid_revisions": 179,
+    "usable_var_rows": 160,
+    "FF_to_IEM": {
+      "beta": 0.744535582262069,
+      "se": 0.5040536181243014,
+      "raw_p": 0.1396499060896291,
+      "holm_p": 0.1396499060896291
+    },
+    "IEM_to_FF": {
+      "beta": 0.020096298933613744,
+      "se": 0.00981788065103271,
+      "raw_p": 0.04066711360635767,
+      "holm_p": 0.08133422721271534
+    }
+  },
+  "controlled_experiments": [
+    {
+      "experiment_id": "HAC_01",
+      "hac_lag": 1,
+      "drop_meeting": null,
+      "meeting_fixed_effects": true,
+      "meetings": 8,
+      "matched_levels": 201,
+      "valid_revisions": 179,
+      "usable_var_rows": 160,
+      "FF_to_IEM": {
+        "beta": 0.744535582262069,
+        "se": 0.5029230025299791,
+        "raw_p": 0.13876209161431688,
+        "holm_p": 0.2449431830868042
+      },
+      "IEM_to_FF": {
+        "beta": 0.020096298933613744,
+        "se": 0.013011675123838093,
+        "raw_p": 0.1224715915434021,
+        "holm_p": 0.2449431830868042
+      }
+    },
+    {
+      "experiment_id": "HAC_03",
+      "hac_lag": 3,
+      "drop_meeting": null,
+      "meeting_fixed_effects": true,
+      "meetings": 8,
+      "matched_levels": 201,
+      "valid_revisions": 179,
+      "usable_var_rows": 160,
+      "FF_to_IEM": {
+        "beta": 0.744535582262069,
+        "se": 0.5228653041458536,
+        "raw_p": 0.15446009797223437,
+        "holm_p": 0.15446009797223437
+      },
+      "IEM_to_FF": {
+        "beta": 0.020096298933613744,
+        "se": 0.010263354856809435,
+        "raw_p": 0.050222580300243964,
+        "holm_p": 0.10044516060048793
+      }
+    },
+    {
+      "experiment_id": "HAC_06",
+      "hac_lag": 6,
+      "drop_meeting": null,
+      "meeting_fixed_effects": true,
+      "meetings": 8,
+      "matched_levels": 201,
+      "valid_revisions": 179,
+      "usable_var_rows": 160,
+      "FF_to_IEM": {
+        "beta": 0.744535582262069,
+        "se": 0.5040536181243014,
+        "raw_p": 0.1396499060896291,
+        "holm_p": 0.1396499060896291
+      },
+      "IEM_to_FF": {
+        "beta": 0.020096298933613744,
+        "se": 0.00981788065103271,
+        "raw_p": 0.04066711360635767,
+        "holm_p": 0.08133422721271534
+      }
+    },
+    {
+      "experiment_id": "HAC_09",
+      "hac_lag": 9,
+      "drop_meeting": null,
+      "meeting_fixed_effects": true,
+      "meetings": 8,
+      "matched_levels": 201,
+      "valid_revisions": 179,
+      "usable_var_rows": 160,
+      "FF_to_IEM": {
+        "beta": 0.744535582262069,
+        "se": 0.4392393896504954,
+        "raw_p": 0.09006470325981476,
+        "holm_p": 0.09006470325981476
+      },
+      "IEM_to_FF": {
+        "beta": 0.020096298933613744,
+        "se": 0.008891217414795686,
+        "raw_p": 0.023806264081455118,
+        "holm_p": 0.047612528162910235
+      }
+    },
+    {
+      "experiment_id": "HAC_12",
+      "hac_lag": 12,
+      "drop_meeting": null,
+      "meeting_fixed_effects": true,
+      "meetings": 8,
+      "matched_levels": 201,
+      "valid_revisions": 179,
+      "usable_var_rows": 160,
+      "FF_to_IEM": {
+        "beta": 0.744535582262069,
+        "se": 0.3910480674847545,
+        "raw_p": 0.05691682485308537,
+        "holm_p": 0.05691682485308537
+      },
+      "IEM_to_FF": {
+        "beta": 0.020096298933613744,
+        "se": 0.008644098397768417,
+        "raw_p": 0.020079569149544788,
+        "holm_p": 0.040159138299089576
+      }
+    },
+    {
+      "experiment_id": "NO_MEETING_FE",
+      "hac_lag": 6,
+      "drop_meeting": null,
+      "meeting_fixed_effects": false,
+      "meetings": 8,
+      "matched_levels": 201,
+      "valid_revisions": 179,
+      "usable_var_rows": 160,
+      "FF_to_IEM": {
+        "beta": 0.7426270968390182,
+        "se": 0.5327736453587139,
+        "raw_p": 0.16335125515599025,
+        "holm_p": 0.18152139204767057
+      },
+      "IEM_to_FF": {
+        "beta": 0.018612696632363156,
+        "se": 0.011004322949835417,
+        "raw_p": 0.09076069602383528,
+        "holm_p": 0.18152139204767057
+      }
+    },
+    {
+      "experiment_id": "LOMO_01",
+      "hac_lag": 6,
+      "drop_meeting": "51:0102",
+      "meeting_fixed_effects": true,
+      "meetings": 7,
+      "matched_levels": 201,
+      "valid_revisions": 179,
+      "usable_var_rows": 134,
+      "FF_to_IEM": {
+        "beta": 0.817038463983383,
+        "se": 0.2915255212628462,
+        "raw_p": 0.005068762600882833,
+        "holm_p": 0.010137525201765666
+      },
+      "IEM_to_FF": {
+        "beta": 0.03398900349360769,
+        "se": 0.022632444474007113,
+        "raw_p": 0.13315335262706102,
+        "holm_p": 0.13315335262706102
+      }
+    },
+    {
+      "experiment_id": "LOMO_02",
+      "hac_lag": 6,
+      "drop_meeting": "51:0302",
+      "meeting_fixed_effects": true,
+      "meetings": 7,
+      "matched_levels": 201,
+      "valid_revisions": 179,
+      "usable_var_rows": 144,
+      "FF_to_IEM": {
+        "beta": 0.7263493988677966,
+        "se": 0.5137232447323734,
+        "raw_p": 0.1573934934990656,
+        "holm_p": 0.1573934934990656
+      },
+      "IEM_to_FF": {
+        "beta": 0.0202609428716635,
+        "se": 0.009971570753119486,
+        "raw_p": 0.04216674312820998,
+        "holm_p": 0.08433348625641995
+      }
+    },
+    {
+      "experiment_id": "LOMO_03",
+      "hac_lag": 6,
+      "drop_meeting": "51:0502",
+      "meeting_fixed_effects": true,
+      "meetings": 7,
+      "matched_levels": 201,
+      "valid_revisions": 179,
+      "usable_var_rows": 137,
+      "FF_to_IEM": {
+        "beta": 0.8124479694548268,
+        "se": 0.565336429463204,
+        "raw_p": 0.1506880803280586,
+        "holm_p": 0.1506880803280586
+      },
+      "IEM_to_FF": {
+        "beta": 0.018569594471885578,
+        "se": 0.009731643327240727,
+        "raw_p": 0.05636971738745073,
+        "holm_p": 0.11273943477490146
+      }
+    },
+    {
+      "experiment_id": "LOMO_04",
+      "hac_lag": 6,
+      "drop_meeting": "51:0602",
+      "meeting_fixed_effects": true,
+      "meetings": 7,
+      "matched_levels": 201,
+      "valid_revisions": 179,
+      "usable_var_rows": 131,
+      "FF_to_IEM": {
+        "beta": 0.731650762309795,
+        "se": 0.508221451713182,
+        "raw_p": 0.14997215535544295,
+        "holm_p": 0.14997215535544295
+      },
+      "IEM_to_FF": {
+        "beta": 0.020179502805931553,
+        "se": 0.009934499411477844,
+        "raw_p": 0.04222912140100287,
+        "holm_p": 0.08445824280200574
+      }
+    },
+    {
+      "experiment_id": "LOMO_05",
+      "hac_lag": 6,
+      "drop_meeting": "51:0802",
+      "meeting_fixed_effects": true,
+      "meetings": 7,
+      "matched_levels": 201,
+      "valid_revisions": 179,
+      "usable_var_rows": 137,
+      "FF_to_IEM": {
+        "beta": 0.8410018687821212,
+        "se": 0.782968215552672,
+        "raw_p": 0.282768873651113,
+        "holm_p": 0.282768873651113
+      },
+      "IEM_to_FF": {
+        "beta": 0.012359413452740291,
+        "se": 0.008131721076535687,
+        "raw_p": 0.12853578316394587,
+        "holm_p": 0.25707156632789174
+      }
+    },
+    {
+      "experiment_id": "LOMO_06",
+      "hac_lag": 6,
+      "drop_meeting": "51:0902",
+      "meeting_fixed_effects": true,
+      "meetings": 7,
+      "matched_levels": 201,
+      "valid_revisions": 179,
+      "usable_var_rows": 140,
+      "FF_to_IEM": {
+        "beta": 0.8216064622455718,
+        "se": 0.513708963778552,
+        "raw_p": 0.10974024834041693,
+        "holm_p": 0.10974024834041693
+      },
+      "IEM_to_FF": {
+        "beta": 0.019861736459385625,
+        "se": 0.010299258381910424,
+        "raw_p": 0.0537975894161914,
+        "holm_p": 0.1075951788323828
+      }
+    },
+    {
+      "experiment_id": "LOMO_07",
+      "hac_lag": 6,
+      "drop_meeting": "51:1102",
+      "meeting_fixed_effects": true,
+      "meetings": 7,
+      "matched_levels": 201,
+      "valid_revisions": 179,
+      "usable_var_rows": 151,
+      "FF_to_IEM": {
+        "beta": 0.51916081487634,
+        "se": 0.38393176520086675,
+        "raw_p": 0.1763044449403388,
+        "holm_p": 0.1763044449403388
+      },
+      "IEM_to_FF": {
+        "beta": 0.017069818889637312,
+        "se": 0.0072868866987206805,
+        "raw_p": 0.01915301375068091,
+        "holm_p": 0.03830602750136182
+      }
+    },
+    {
+      "experiment_id": "LOMO_08",
+      "hac_lag": 6,
+      "drop_meeting": "51:1202",
+      "meeting_fixed_effects": true,
+      "meetings": 7,
+      "matched_levels": 201,
+      "valid_revisions": 179,
+      "usable_var_rows": 146,
+      "FF_to_IEM": {
+        "beta": 0.7379941168166302,
+        "se": 0.5057257847576729,
+        "raw_p": 0.14448882285731895,
+        "holm_p": 0.14448882285731895
+      },
+      "IEM_to_FF": {
+        "beta": 0.02013628359842307,
+        "se": 0.009865451631088094,
+        "raw_p": 0.041241792231825496,
+        "holm_p": 0.08248358446365099
+      }
+    }
+  ]
+}

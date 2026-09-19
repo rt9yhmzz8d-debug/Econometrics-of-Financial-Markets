@@ -1,0 +1,30 @@
+{
+  "FF_to_IEM": {
+    "label": "FF \u2192 IEM",
+    "baseline_beta": 0.744535582262069,
+    "baseline_raw_p": 0.1396499060896291,
+    "baseline_holm_p": 0.1396499060896291,
+    "lomo_beta_min": 0.51916081487634,
+    "lomo_beta_max": 0.8410018687821212,
+    "lomo_sign_retention": 1.0,
+    "hac_raw_p_min": 0.05691682485308537,
+    "hac_raw_p_max": 0.15446009797223437,
+    "hac_holm_p_min": 0.05691682485308537,
+    "hac_holm_p_max": 0.2449431830868042,
+    "no_fe_beta": 0.7426270968390182
+  },
+  "IEM_to_FF": {
+    "label": "IEM \u2192 FF",
+    "baseline_beta": 0.020096298933613744,
+    "baseline_raw_p": 0.04066711360635767,
+    "baseline_holm_p": 0.08133422721271534,
+    "lomo_beta_min": 0.012359413452740291,
+    "lomo_beta_max": 0.03398900349360769,
+    "lomo_sign_retention": 1.0,
+    "hac_raw_p_min": 0.020079569149544788,
+    "hac_raw_p_max": 0.1224715915434021,
+    "hac_holm_p_min": 0.040159138299089576,
+    "hac_holm_p_max": 0.2449431830868042,
+    "no_fe_beta": 0.018612696632363156
+  }
+}
