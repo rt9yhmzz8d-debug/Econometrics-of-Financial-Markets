@@ -1,0 +1,221 @@
+{
+  "experiment": "leave_one_observation_out_influence_004",
+  "parent_checkpoint": "7f3cf19",
+  "baseline_n": 160,
+  "baseline": {
+    "FF_to_IEM": 0.7445355822620687,
+    "IEM_to_FF": 0.02009629893361374
+  },
+  "maximum_absolute_change": {
+    "FF_to_IEM": 0.44431013673286546,
+    "IEM_to_FF": 0.008774961551332606
+  },
+  "sign_flips": {
+    "FF_to_IEM": 0,
+    "IEM_to_FF": 0
+  },
+  "top_10_FF_to_IEM_influence": [
+    {
+      "family": "51:1102",
+      "date": "2002-10-07",
+      "ff_to_iem_beta": 1.1888457189949342,
+      "iem_to_ff_beta": 0.016519768453051434,
+      "ff_to_iem_change": 0.44431013673286546,
+      "iem_to_ff_change": -0.0035765304805623066,
+      "ff_to_iem_pct_change": 59.67614541442734,
+      "iem_to_ff_pct_change": -17.796960984592452
+    },
+    {
+      "family": "51:1102",
+      "date": "2002-11-01",
+      "ff_to_iem_beta": 0.43797127767605454,
+      "iem_to_ff_beta": 0.013973026377624426,
+      "ff_to_iem_change": -0.3065643045860142,
+      "iem_to_ff_change": -0.006123272555989314,
+      "ff_to_iem_pct_change": -41.17523888577655,
+      "iem_to_ff_pct_change": -30.469653025250953
+    },
+    {
+      "family": "51:0102",
+      "date": "2002-01-14",
+      "ff_to_iem_beta": 0.9594905351755294,
+      "iem_to_ff_beta": 0.017558717784605913,
+      "ff_to_iem_change": 0.21495495291346067,
+      "iem_to_ff_change": -0.0025375811490078275,
+      "ff_to_iem_pct_change": 28.871011410949436,
+      "iem_to_ff_pct_change": -12.627106898591087
+    },
+    {
+      "family": "51:1102",
+      "date": "2002-10-11",
+      "ff_to_iem_beta": 0.5383691846760305,
+      "iem_to_ff_beta": 0.02046829883564394,
+      "ff_to_iem_change": -0.20616639758603827,
+      "iem_to_ff_change": 0.0003719999020301984,
+      "ff_to_iem_pct_change": -27.690603712942476,
+      "iem_to_ff_pct_change": 1.8510866267418968
+    },
+    {
+      "family": "51:1102",
+      "date": "2002-10-08",
+      "ff_to_iem_beta": 0.5734815603007033,
+      "iem_to_ff_beta": 0.028871260484946346,
+      "ff_to_iem_change": -0.17105402196136543,
+      "iem_to_ff_change": 0.008774961551332606,
+      "ff_to_iem_pct_change": -22.97459329501276,
+      "iem_to_ff_pct_change": 43.66456520337341
+    },
+    {
+      "family": "51:0102",
+      "date": "2002-01-24",
+      "ff_to_iem_beta": 0.6385683168624071,
+      "iem_to_ff_beta": 0.020109575781598242,
+      "ff_to_iem_change": -0.10596726539966161,
+      "iem_to_ff_change": 1.3276847984501627e-05,
+      "ff_to_iem_pct_change": -14.232666366019595,
+      "iem_to_ff_pct_change": 0.0660661350050597
+    },
+    {
+      "family": "51:0102",
+      "date": "2002-01-29",
+      "ff_to_iem_beta": 0.6398708452006503,
+      "iem_to_ff_beta": 0.020996283285730222,
+      "ff_to_iem_change": -0.10466473706141843,
+      "iem_to_ff_change": 0.0008999843521164813,
+      "ff_to_iem_pct_change": -14.057721290287178,
+      "iem_to_ff_pct_change": 4.478358702214254
+    },
+    {
+      "family": "51:0102",
+      "date": "2002-01-17",
+      "ff_to_iem_beta": 0.8445495933864117,
+      "iem_to_ff_beta": 0.020363120261690005,
+      "ff_to_iem_change": 0.10001401112434294,
+      "iem_to_ff_change": 0.0002668213280762645,
+      "ff_to_iem_pct_change": 13.43307338253433,
+      "iem_to_ff_pct_change": 1.32771376937457
+    },
+    {
+      "family": "51:0802",
+      "date": "2002-07-30",
+      "ff_to_iem_beta": 0.8361826423401509,
+      "iem_to_ff_beta": 0.020003072445474567,
+      "ff_to_iem_change": 0.09164706007808221,
+      "iem_to_ff_change": -9.322648813917325e-05,
+      "ff_to_iem_pct_change": 12.309292162993414,
+      "iem_to_ff_pct_change": -0.4638987927435709
+    },
+    {
+      "family": "51:0102",
+      "date": "2002-01-18",
+      "ff_to_iem_beta": 0.6615991775899418,
+      "iem_to_ff_beta": 0.023588710745038145,
+      "ff_to_iem_change": -0.08293640467212693,
+      "iem_to_ff_change": 0.003492411811424404,
+      "ff_to_iem_pct_change": -11.139347352633871,
+      "iem_to_ff_pct_change": 17.378383069247043
+    }
+  ],
+  "top_10_IEM_to_FF_influence": [
+    {
+      "family": "51:1102",
+      "date": "2002-10-08",
+      "ff_to_iem_beta": 0.5734815603007033,
+      "iem_to_ff_beta": 0.028871260484946346,
+      "ff_to_iem_change": -0.17105402196136543,
+      "iem_to_ff_change": 0.008774961551332606,
+      "ff_to_iem_pct_change": -22.97459329501276,
+      "iem_to_ff_pct_change": 43.66456520337341
+    },
+    {
+      "family": "51:1102",
+      "date": "2002-10-28",
+      "ff_to_iem_beta": 0.6787666191655001,
+      "iem_to_ff_beta": 0.026862562379560914,
+      "ff_to_iem_change": -0.06576896309656866,
+      "iem_to_ff_change": 0.006766263445947173,
+      "ff_to_iem_pct_change": -8.833555395263657,
+      "iem_to_ff_pct_change": 33.66920181819994
+    },
+    {
+      "family": "51:1102",
+      "date": "2002-11-01",
+      "ff_to_iem_beta": 0.43797127767605454,
+      "iem_to_ff_beta": 0.013973026377624426,
+      "ff_to_iem_change": -0.3065643045860142,
+      "iem_to_ff_change": -0.006123272555989314,
+      "ff_to_iem_pct_change": -41.17523888577655,
+      "iem_to_ff_pct_change": -30.469653025250953
+    },
+    {
+      "family": "51:0802",
+      "date": "2002-07-29",
+      "ff_to_iem_beta": 0.787690794194519,
+      "iem_to_ff_beta": 0.015283323290039555,
+      "ff_to_iem_change": 0.04315521193245031,
+      "iem_to_ff_change": -0.004812975643574186,
+      "ff_to_iem_pct_change": 5.796259166195247,
+      "iem_to_ff_pct_change": -23.949562352119685
+    },
+    {
+      "family": "51:1102",
+      "date": "2002-10-10",
+      "ff_to_iem_beta": 0.8244694892108516,
+      "iem_to_ff_beta": 0.015998013491147413,
+      "ff_to_iem_change": 0.07993390694878288,
+      "iem_to_ff_change": -0.004098285442466328,
+      "ff_to_iem_pct_change": 10.736076132980168,
+      "iem_to_ff_pct_change": -20.393234873767717
+    },
+    {
+      "family": "51:1102",
+      "date": "2002-11-04",
+      "ff_to_iem_beta": 0.812004258682802,
+      "iem_to_ff_beta": 0.016182946801875913,
+      "ff_to_iem_change": 0.06746867642073329,
+      "iem_to_ff_change": -0.003913352131737827,
+      "ff_to_iem_pct_change": 9.061847147150184,
+      "iem_to_ff_pct_change": -19.472999205800146
+    },
+    {
+      "family": "51:1102",
+      "date": "2002-10-07",
+      "ff_to_iem_beta": 1.1888457189949342,
+      "iem_to_ff_beta": 0.016519768453051434,
+      "ff_to_iem_change": 0.44431013673286546,
+      "iem_to_ff_change": -0.0035765304805623066,
+      "ff_to_iem_pct_change": 59.67614541442734,
+      "iem_to_ff_pct_change": -17.796960984592452
+    },
+    {
+      "family": "51:0102",
+      "date": "2002-01-18",
+      "ff_to_iem_beta": 0.6615991775899418,
+      "iem_to_ff_beta": 0.023588710745038145,
+      "ff_to_iem_change": -0.08293640467212693,
+      "iem_to_ff_change": 0.003492411811424404,
+      "ff_to_iem_pct_change": -11.139347352633871,
+      "iem_to_ff_pct_change": 17.378383069247043
+    },
+    {
+      "family": "51:0102",
+      "date": "2002-01-14",
+      "ff_to_iem_beta": 0.9594905351755294,
+      "iem_to_ff_beta": 0.017558717784605913,
+      "ff_to_iem_change": 0.21495495291346067,
+      "iem_to_ff_change": -0.0025375811490078275,
+      "ff_to_iem_pct_change": 28.871011410949436,
+      "iem_to_ff_pct_change": -12.627106898591087
+    },
+    {
+      "family": "51:0802",
+      "date": "2002-07-16",
+      "ff_to_iem_beta": 0.7222803716576713,
+      "iem_to_ff_beta": 0.017786326213817986,
+      "ff_to_iem_change": -0.02225521060439739,
+      "iem_to_ff_change": -0.0023099727197957547,
+      "ff_to_iem_pct_change": -2.9891399598097097,
+      "iem_to_ff_pct_change": -11.494518107172548
+    }
+  ]
+}
