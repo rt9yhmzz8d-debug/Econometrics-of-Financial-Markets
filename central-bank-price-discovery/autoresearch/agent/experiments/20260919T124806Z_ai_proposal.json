@@ -1,0 +1,61 @@
+{
+  "execution_requirements": [
+    "Use the existing validated baseline-reproduction code or an independently auditable equivalent.",
+    "Create a new experiment output directory without overwriting prior evidence.",
+    "Save the complete meeting-by-direction coefficient table, design dimensions, aggregation checks, and execution metadata.",
+    "Record any rank deficiency, convergence issue, or meeting-specific estimation failure explicitly.",
+    "Verify that rerunning the procedure on the same frozen inputs produces identical results."
+  ],
+  "expected_information_gain": "The experiment will distinguish broad cross-meeting directional stability from pooled aggregation driven by heterogeneous or opposing meeting responses. It can reveal whether the positive pooled FF-to-IEM estimate is recurrent, whether reverse-direction estimates are consistently weak, and how much coefficient dispersion limits interpretation of the pooled result.",
+  "experiment_id": "agent_008_meeting_specific_directional_heterogeneity",
+  "falsifiable_hypothesis": "The FF-to-IEM coefficient is positive in at least 6 of the 8 meetings, while the IEM-to-FF coefficient is not positive in at least 6 meetings; substantial sign reversals would falsify this stability hypothesis.",
+  "interpretation_if_not_supported": "If fewer than 6 meetings have the predicted signs, or if coefficients show large opposing values across meetings, the pooled directional result should be interpreted as heterogeneous and potentially episode-specific. A positive pooled estimate would then provide limited evidence of a stable general price-discovery mechanism.",
+  "interpretation_if_supported": "If the preregistered sign-count pattern holds with moderate dispersion, the directional estimate is descriptively more robust across meetings than a pooled coefficient alone indicates. This would strengthen the robustness interpretation, but would not convert the eight-meeting exercise into independent confirmation because the meetings remain few and historically related.",
+  "limitations": [
+    "Only eight meetings are available, so meeting-specific coefficients may be imprecise and highly sensitive to within-meeting sample size.",
+    "Fully interacting slopes substantially increase parameter count relative to the 160-row baseline.",
+    "Meeting-specific heterogeneity is descriptive and does not identify a causal mechanism.",
+    "The analysis cannot distinguish genuine economic heterogeneity from measurement noise or differing event intensity.",
+    "The sign-count threshold is a prespecified descriptive criterion, not a formal statistical test."
+  ],
+  "method": {
+    "analysis_type": "Descriptive blocked heterogeneity analysis using a fully interacted meeting-specific VAR",
+    "inputs": [
+      "Validated historical matched levels and revisions used by the baseline",
+      "The exact baseline 160-row usable VAR sample",
+      "The eight meeting identifiers and meeting boundaries",
+      "The baseline VAR lag structure, transformations, and fixed-effect construction"
+    ],
+    "parameters": {
+      "directional_stability_threshold": "positive coefficient in at least 6 of 8 meetings",
+      "fixed_effects": "meeting fixed effects, exactly as in the baseline",
+      "lag_structure": "exactly the validated baseline VAR specification",
+      "number_of_meetings": 8,
+      "uncertainty_reporting": "report baseline-compatible HAC standard errors where estimable, but evaluate the primary hypothesis using the preregistered sign-count and dispersion summaries rather than significance thresholds",
+      "usable_rows": 160,
+      "weighting": "observation-weighted aggregation for the pooled-coefficient consistency check"
+    },
+    "steps": [
+      "Reproduce the baseline estimation first and verify 160 usable rows, 8 meetings, FF-to-IEM beta of 0.7445355822620687, and IEM-to-FF beta of 0.02009629893361374.",
+      "Using the identical dependent variables, lagged regressors, sample restrictions, and meeting fixed effects as the baseline, replace each pooled directional slope with eight interactions between that regressor and the eight meeting indicators.",
+      "Estimate the resulting saturated meeting-specific coefficient model without changing the historical source data or filling temporal gaps.",
+      "For each meeting, record the FF-to-IEM and IEM-to-FF coefficients, observation count, sign, and model-implied contribution to the pooled coefficient.",
+      "Report the number and proportion of meetings with positive coefficients in each direction, the minimum, maximum, median, interquartile range, and observation-weighted average of the meeting-specific coefficients.",
+      "Compare the observation-weighted average of the meeting-specific coefficients with the reproduced pooled baseline coefficient as an algebraic consistency check.",
+      "Retain and report all meeting-specific estimates, including unstable, negative, or otherwise adverse estimates; do not select meetings or specifications based on coefficient signs or p-values."
+    ]
+  },
+  "motivation": "The pooled estimate can conceal heterogeneous responses across meetings even when observation-level influence is not concentrated in a small number of observations. Estimating meeting-specific slopes directly tests whether the directional pattern is recurrent across the eight institutional episodes rather than an artifact of aggregation. This is distinct from permutation, circular-shift, observation-deletion, bandwidth, and influence-concentration analyses.",
+  "protected_invariants": [
+    "160-row baseline reproduced before analysis",
+    "validated data read only",
+    "meeting boundaries preserved",
+    "temporal gaps not filled or bridged",
+    "null and adverse meeting-specific results retained",
+    "no significance optimisation",
+    "baseline lag structure and transformations unchanged",
+    "eight-meeting exercise remains a robustness stress test rather than independent confirmation"
+  ],
+  "research_question": "Is the pooled FF-to-IEM price-discovery estimate a broadly recurring relationship across FOMC meetings, or is it generated by heterogeneous meeting-specific responses?",
+  "title": "Meeting-specific directional coefficient heterogeneity"
+}
