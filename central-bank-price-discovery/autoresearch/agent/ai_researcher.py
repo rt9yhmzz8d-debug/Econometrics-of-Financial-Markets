@@ -308,8 +308,7 @@ def propose():
                                 "inputs",
                                 "steps",
                                 "parameters"
-                            ],
-                            "additionalProperties": True
+                            ]
                         },
                         "protected_invariants": {
                             "type": "array",
