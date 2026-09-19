@@ -1,0 +1,105 @@
+{
+  "reviewed_on": "2026-09-19",
+  "purpose": "Check whether freely available external files supply the missing daily Fed funds futures leg for the source-checked 6 November 2001 IEM pilot.",
+  "event": {
+    "meeting_date": "2001-11-06",
+    "actual_target_change_basis_points": -50,
+    "actual_target_after_percent": 2.0,
+    "source": "https://www.federalreserve.gov/boarddocs/press/general/2001/20011106/"
+  },
+  "files": [
+    {
+      "name": "gss_data_aer_final.dta",
+      "sha256": "9633edc8d3a48834b5c8caeb00a1b8ef05609cdd2053bc2dd3f686bd15203edf",
+      "source_role": "external_event_check",
+      "coverage": "Daily research data, 1990 onward in the supplied file; includes monetary-policy surprises and zero-to-fourteen-year forward rates.",
+      "event_observation": {
+        "date": "2001-11-06",
+        "fomc": 1,
+        "inter": 0,
+        "mpspr_as_stored": -0.1,
+        "mpspr_basis_points_after_published_code_scaling": -10.0,
+        "fwd0": 1.9475,
+        "fwd1": 2.9561,
+        "fwd2": 3.9579
+      },
+      "daily_contract_prices_present": false,
+      "usable_for_pairing": false,
+      "reason": "The event surprise and forward rates are derived research variables, not daily observations for a named Fed funds futures contract."
+    },
+    {
+      "name": "gss_program_aer_final.do",
+      "sha256": "c3ebd81d026eb36274a0a1fa63c710f2590467fbcdcae9c70f4ce50c631273a6",
+      "source_role": "transformation_provenance",
+      "coverage": "Published Stata transformations for the GSS data.",
+      "daily_contract_prices_present": false,
+      "usable_for_pairing": false,
+      "reason": "The code multiplies mpspr by 100 to express the surprise in basis points; it does not reconstruct a daily Fed funds futures price path."
+    },
+    {
+      "name": "monetary-policy-surprises-data.xlsx",
+      "sha256": "708606624de050cdaf6fd850a320b38d45099ab7c2398e01ba12dcece5743668",
+      "source_role": "external_event_check",
+      "source": "https://www.frbsf.org/research-and-insights/data-and-indicators/monetary-policy-surprises/",
+      "method": "Thirty-minute changes around FOMC announcements in money-market futures covering the next four quarters.",
+      "event_observation": {
+        "date": "2001-11-06",
+        "time": "2:20pm",
+        "FF1": null,
+        "FF2": null,
+        "ED1": -0.16,
+        "ED2": -0.145,
+        "ED3": -0.16,
+        "ED4": -0.15,
+        "MPS_as_stored": -0.153178,
+        "MPS_ORTH_as_stored": -0.092351
+      },
+      "daily_contract_prices_present": false,
+      "usable_for_pairing": false,
+      "reason": "The workbook supplies announcement-window changes, not pre-announcement daily price levels. Its FF1 and FF2 observations are missing for this event."
+    },
+    {
+      "name": "sf_fed_monetary_policy_surprises.xlsx",
+      "sha256": "708606624de050cdaf6fd850a320b38d45099ab7c2398e01ba12dcece5743668",
+      "source_role": "duplicate_download",
+      "byte_identical_to": "monetary-policy-surprises-data.xlsx",
+      "daily_contract_prices_present": false,
+      "usable_for_pairing": false,
+      "reason": "This is a second filename for the same workbook, not another independent data source."
+    },
+    {
+      "name": "lseg_fed_funds_contract_search.csv",
+      "sha256": "077716a074ee037f01581a2e27fd76145d1cbc87b5562f36366e40528429ea85",
+      "source_role": "instrument_identity",
+      "instrument": "02FFZ1^0",
+      "description": "30-Day Federal Funds Futures, December 2001",
+      "exchange": "Chicago Board of Trade",
+      "daily_contract_prices_present": false,
+      "usable_for_pairing": false,
+      "reason": "The file identifies a candidate contract but contains no historical observations."
+    },
+    {
+      "name": "fed_funds_december_2001_priceclose.csv",
+      "sha256": "d8e52feaede4431efce2534edfd5332bb37b53357b8651b5bb434d33ea44d630",
+      "source_role": "failed_price_retrieval",
+      "instrument": "02FFZ1^0",
+      "requested_field": "TR.PriceClose",
+      "rows": 1,
+      "dated_price_observations": 0,
+      "daily_contract_prices_present": false,
+      "usable_for_pairing": false,
+      "reason": "The returned row has blank Date and Price Close fields."
+    }
+  ],
+  "contract_horizon_note": {
+    "source": "https://www.cmegroup.com/education/courses/understanding-stir-futures/introduction-to-fed-fund-futures",
+    "summary": "Fed funds futures settle to the average daily effective federal funds rate for the delivery month. A deferred month can reflect more than one policy meeting; the December 2001 candidate also spans the 11 December meeting.",
+    "implication": "An exact contract-month mapping and horizon adjustment are required before interpreting a daily futures change as news solely about the 6 November meeting."
+  },
+  "decision": {
+    "external_direction_check": "passes",
+    "paired_daily_futures_leg": "missing",
+    "econometrics_ready": false,
+    "report_role": "Historical feasibility and external-validity agenda only; do not report the IEM-futures lead-lag estimates as reproduced evidence."
+  }
+}

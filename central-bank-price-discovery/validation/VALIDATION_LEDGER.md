@@ -4,9 +4,11 @@ Updated: 19 September 2026 (Sydney)
 
 ## Current source state
 
-- GitHub main remains at `e5928a751856e59816342085dd76f33a8ac5ee79`.
-- No open pull request contains the validation layer.
-- The shared Google Doc was last modified on 10 September 2026.
+- The original Round 4 acquisition remains fixed at
+  `e5928a751856e59816342085dd76f33a8ac5ee79` for byte-level comparison.
+- The validation layer was squash-merged to GitHub main as `ae6c0e7`.
+- The shared Google Doc now states that IEM is a historical feasibility and
+  external-validity extension, not evidence for the headline intraday result.
 - The report's 86-meeting, 1,019-row historical model remains a reported result,
   not a result reproduced from the public Round 4 acquisition commit.
 
@@ -21,6 +23,16 @@ Updated: 19 September 2026 (Sydney)
 - Family `51:1101` is source-checked: 6 November 2001 decision, 3 October 2001
   comparison date, and lower/unchanged/higher USD 1 contracts.
 - The estimation gate is closed and tested. No model is fitted by this layer.
+- Six downloaded external files have been classified. The GSS and SF Fed files
+  independently agree on the direction of the 6 November 2001 surprise, and the
+  Federal Reserve confirms a 50-basis-point cut to 2 percent.
+- The two SF Fed filenames are byte-identical. They are one source, not two
+  independent checks.
+- LSEG identifies `02FFZ1^0` as the December 2001 candidate, but the supplied
+  retrieval contains zero dated price observations.
+- Pilot sensitivity yields 33 valid pre-meeting days when zero-quantity reported
+  last prices are accepted, 29 with same-day positive quantity for every leg,
+  and 32 under positive-quantity carry rules of one, three or seven days.
 
 ## Excluded or unresolved
 
@@ -37,12 +49,16 @@ Updated: 19 September 2026 (Sydney)
   zero-volume carry rule.
 - Futures matching: no verified December 2001 delivery series, time zone, close
   convention or settlement-horizon adjustment is present in the repository.
+- The SF Fed and GSS event surprises cannot substitute for the missing futures
+  panel: they are announcement-window or derived research measures, not daily
+  pre-announcement prices for the identified contract.
 
 ## Next bounded action
 
-Obtain the raw daily December 2001 Fed funds futures series for 3 October through
-5 November 2001, with the exact instrument identifier, timestamps, time zone,
-price field, volume and source metadata. Verify how the contract's monthly
-average payoff incorporates both the 6 November and 11 December policy meetings.
-Only then construct the paired pilot table. Do not fit a lead-lag model until the
-IEM price-field ambiguity and the broader family mapping gate are also resolved.
+Obtain the raw daily `02FFZ1^0` series, or a demonstrably equivalent exact
+December 2001 contract, for 3 October through 5 November 2001. Require dates,
+timestamps, time zone, close or settlement field, volume and source metadata.
+Verify how the contract's monthly-average payoff incorporates both the 6
+November and 11 December policy meetings. Only then construct the paired pilot
+table. Do not fit a lead-lag model until the IEM price-field ambiguity and the
+broader family mapping gate are also resolved.

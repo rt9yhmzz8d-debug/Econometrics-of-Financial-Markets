@@ -1,0 +1,69 @@
+{
+  "external_files_reviewed": 6,
+  "duplicate_downloads": 1,
+  "candidate_futures_instrument": "02FFZ1^0",
+  "candidate_futures_dated_price_observations": 0,
+  "event_direction_checks": "negative_easing_surprise_and_realized_cut",
+  "external_direction_check": "passes",
+  "paired_daily_futures_leg": "missing",
+  "econometrics_ready": false,
+  "pilot_sensitivity": [
+    {
+      "policy": "reported_last_regardless_of_quantity",
+      "valid_pre_meeting_days": 33,
+      "first_valid_date": "2001-10-04",
+      "last_valid_date": "2001-11-05",
+      "first_directional_score": -53.780718336483936,
+      "last_directional_score": -96.84729064039409,
+      "minimum_directional_score": -98.30677290836654,
+      "maximum_directional_score": -48.76847290640395
+    },
+    {
+      "policy": "same_day_positive_quantity_only",
+      "valid_pre_meeting_days": 29,
+      "first_valid_date": "2001-10-05",
+      "last_valid_date": "2001-11-05",
+      "first_directional_score": -54.709800190294956,
+      "last_directional_score": -96.84729064039409,
+      "minimum_directional_score": -98.30677290836654,
+      "maximum_directional_score": -48.76847290640395
+    },
+    {
+      "policy": "positive_quantity_carry_1_calendar_day",
+      "valid_pre_meeting_days": 32,
+      "first_valid_date": "2001-10-05",
+      "last_valid_date": "2001-11-05",
+      "first_directional_score": -54.709800190294956,
+      "last_directional_score": -96.84729064039409,
+      "minimum_directional_score": -98.30677290836654,
+      "maximum_directional_score": -48.76847290640395
+    },
+    {
+      "policy": "positive_quantity_carry_3_calendar_days",
+      "valid_pre_meeting_days": 32,
+      "first_valid_date": "2001-10-05",
+      "last_valid_date": "2001-11-05",
+      "first_directional_score": -54.709800190294956,
+      "last_directional_score": -96.84729064039409,
+      "minimum_directional_score": -98.30677290836654,
+      "maximum_directional_score": -48.76847290640395
+    },
+    {
+      "policy": "positive_quantity_carry_7_calendar_days",
+      "valid_pre_meeting_days": 32,
+      "first_valid_date": "2001-10-05",
+      "last_valid_date": "2001-11-05",
+      "first_directional_score": -54.709800190294956,
+      "last_directional_score": -96.84729064039409,
+      "minimum_directional_score": -98.30677290836654,
+      "maximum_directional_score": -48.76847290640395
+    }
+  ],
+  "interpretation": "Historical feasibility and external-validity agenda only; do not report the IEM-futures lead-lag estimates as reproduced evidence.",
+  "blockers": [
+    "Obtain dated daily prices, volume, field definition and time-zone metadata for an exact Fed funds futures contract.",
+    "Resolve how the selected monthly-average settlement horizon loads on the 6 November and 11 December 2001 meetings.",
+    "Resolve IEM changed-price observations with zero reported quantity before treating daily revisions as trade-timed information.",
+    "Complete source-checked mappings before extending beyond the single pilot family."
+  ]
+}
