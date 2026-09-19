@@ -1,0 +1,453 @@
+{
+  "baseline_reproduction_passed": true,
+  "deterministic_rerun": {
+    "first_computation_fingerprint": "e7768b457f6f34f7359e661bd58023598aef8eb791f1438464ecc78e00d6a479",
+    "identical_results": true,
+    "performed_before_final_evidence_acceptance": true,
+    "second_computation_fingerprint": "e7768b457f6f34f7359e661bd58023598aef8eb791f1438464ecc78e00d6a479",
+    "second_computation_performed": true
+  },
+  "experiment_status": "executed_after_baseline_reproduction",
+  "metadata": {
+    "canonical_input_path": "/Users/gregcunningham/Desktop/ECMT3150/Econometrics-of-Financial-Markets/central-bank-price-discovery/validation/external/barchart/processed/historical_panel_2002_gap_safe.csv",
+    "canonical_input_sha256": "596abf54623bb9ae61bd3dd66479a1f9fe93e9f9122b14400832afbc673784ec",
+    "experiment_id": "agent_008_meeting_specific_directional_heterogeneity",
+    "implementation_contract_path": "/Users/gregcunningham/Desktop/ECMT3150/Econometrics-of-Financial-Markets/central-bank-price-discovery/autoresearch/agent/implementations/20260919T124859Z_agent_008_meeting_specific_directional_heterogeneity_implementation.json",
+    "null_results_recorded": true,
+    "output_path": "/Users/gregcunningham/Desktop/ECMT3150/Econometrics-of-Financial-Markets/central-bank-price-discovery/autoresearch/agent/outputs/agent_008_meeting_specific_directional_heterogeneity",
+    "planned_and_executed_without_modifying_validated_source_data": true,
+    "procedure_path": "/Users/gregcunningham/Desktop/ECMT3150/Econometrics-of-Financial-Markets/central-bank-price-discovery/autoresearch/agent/generated_executors/20260919T125102Z_agent_008_meeting_specific_directional_heterogeneity.py",
+    "procedure_sha256": "329f1a929009ae8caaa3e523db60e60d3213fa08c034c3f054680b274330cb3e",
+    "python_version": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "result_selection_performed": false,
+    "software_or_engine_version": "python-numpy-experiment-engine",
+    "timestamp_utc": "2026-09-19T12:54:02.339849+00:00",
+    "validation_data_modified": false
+  },
+  "results": {
+    "aggregation_checks": {
+      "FF_to_IEM": {
+        "algebraic_difference_from_pooled_baseline": -0.03225226419727134,
+        "meeting_contributions": [
+          {
+            "coefficient": 1.5285866149071854,
+            "direction": "FF_to_IEM",
+            "meeting": "51:0102",
+            "usable_observation_count": 26,
+            "weighted_contribution": 39.74325198758682
+          },
+          {
+            "coefficient": 1.9665251836080155,
+            "direction": "FF_to_IEM",
+            "meeting": "51:0302",
+            "usable_observation_count": 16,
+            "weighted_contribution": 31.46440293772825
+          },
+          {
+            "coefficient": 0.2006875465773277,
+            "direction": "FF_to_IEM",
+            "meeting": "51:0502",
+            "usable_observation_count": 23,
+            "weighted_contribution": 4.6158135712785375
+          },
+          {
+            "coefficient": 0.7312262226340451,
+            "direction": "FF_to_IEM",
+            "meeting": "51:0602",
+            "usable_observation_count": 29,
+            "weighted_contribution": 21.20556045638731
+          },
+          {
+            "coefficient": 0.594487200998803,
+            "direction": "FF_to_IEM",
+            "meeting": "51:0802",
+            "usable_observation_count": 23,
+            "weighted_contribution": 13.67320562297247
+          },
+          {
+            "coefficient": -1.252253556036008,
+            "direction": "FF_to_IEM",
+            "meeting": "51:0902",
+            "usable_observation_count": 20,
+            "weighted_contribution": -25.04507112072016
+          },
+          {
+            "coefficient": 1.0546130353205516,
+            "direction": "FF_to_IEM",
+            "meeting": "51:1102",
+            "usable_observation_count": 9,
+            "weighted_contribution": 9.491517317884965
+          },
+          {
+            "coefficient": 1.3440464369463854,
+            "direction": "FF_to_IEM",
+            "meeting": "51:1202",
+            "usable_observation_count": 14,
+            "weighted_contribution": 18.816650117249395
+          }
+        ],
+        "observation_weighted_average": 0.7122833180647976,
+        "reproduced_pooled_baseline_coefficient": 0.744535582262069,
+        "total_usable_observations_used": 160
+      },
+      "IEM_to_FF": {
+        "algebraic_difference_from_pooled_baseline": -0.012856096761242393,
+        "meeting_contributions": [
+          {
+            "coefficient": 0.012530534780148254,
+            "direction": "IEM_to_FF",
+            "meeting": "51:0102",
+            "usable_observation_count": 26,
+            "weighted_contribution": 0.32579390428385463
+          },
+          {
+            "coefficient": -0.0412806288596808,
+            "direction": "IEM_to_FF",
+            "meeting": "51:0302",
+            "usable_observation_count": 16,
+            "weighted_contribution": -0.6604900617548928
+          },
+          {
+            "coefficient": 0.015109051386590865,
+            "direction": "IEM_to_FF",
+            "meeting": "51:0502",
+            "usable_observation_count": 23,
+            "weighted_contribution": 0.3475081818915899
+          },
+          {
+            "coefficient": 0.0015399235386906799,
+            "direction": "IEM_to_FF",
+            "meeting": "51:0602",
+            "usable_observation_count": 29,
+            "weighted_contribution": 0.04465778262202971
+          },
+          {
+            "coefficient": 0.012779338110500783,
+            "direction": "IEM_to_FF",
+            "meeting": "51:0802",
+            "usable_observation_count": 23,
+            "weighted_contribution": 0.293924776541518
+          },
+          {
+            "coefficient": 0.021029119278900117,
+            "direction": "IEM_to_FF",
+            "meeting": "51:0902",
+            "usable_observation_count": 20,
+            "weighted_contribution": 0.4205823855780023
+          },
+          {
+            "coefficient": 0.04126284440404954,
+            "direction": "IEM_to_FF",
+            "meeting": "51:1102",
+            "usable_observation_count": 9,
+            "weighted_contribution": 0.37136559963644583
+          },
+          {
+            "coefficient": 0.001077841341490606,
+            "direction": "IEM_to_FF",
+            "meeting": "51:1202",
+            "usable_observation_count": 14,
+            "weighted_contribution": 0.015089778780868483
+          }
+        ],
+        "observation_weighted_average": 0.007240202172371352,
+        "reproduced_pooled_baseline_coefficient": 0.020096298933613744,
+        "total_usable_observations_used": 160
+      }
+    },
+    "baseline_reproduction": {
+      "FF_to_IEM": {
+        "beta": 0.744535582262069,
+        "p": 0.1396499060896291,
+        "se": 0.5040536181243014,
+        "t": 1.4770959983040215
+      },
+      "IEM_to_FF": {
+        "beta": 0.020096298933613744,
+        "p": 0.04066711360635767,
+        "se": 0.00981788065103271,
+        "t": 2.0469080494984304
+      },
+      "matched_levels": 201,
+      "meetings": 8,
+      "usable_var_rows": 160
+    },
+    "design_dimensions": {
+      "FF_to_IEM": {
+        "full_rank": true,
+        "number_of_fixed_effect_indicators": 7,
+        "number_of_meeting_interactions": 8,
+        "number_of_regressors": 17,
+        "rank": 17,
+        "total_observations": 160
+      },
+      "IEM_to_FF": {
+        "full_rank": true,
+        "number_of_fixed_effect_indicators": 7,
+        "number_of_meeting_interactions": 8,
+        "number_of_regressors": 17,
+        "rank": 17,
+        "total_observations": 160
+      }
+    },
+    "dispersion": {
+      "FF_to_IEM": {
+        "available_coefficient_count": 8,
+        "first_quartile": 0.4960372873934342,
+        "interquartile_range": 0.8941441940431512,
+        "maximum": 1.9665251836080155,
+        "median": 0.8929196289772984,
+        "minimum": -1.252253556036008,
+        "third_quartile": 1.3901814814365854
+      },
+      "IEM_to_FF": {
+        "available_coefficient_count": 8,
+        "first_quartile": 0.0014244029893906614,
+        "interquartile_range": 0.015164665370277518,
+        "maximum": 0.04126284440404954,
+        "median": 0.012654936445324519,
+        "minimum": -0.0412806288596808,
+        "third_quartile": 0.01658906835966818
+      }
+    },
+    "failure_records": [],
+    "families": [
+      "51:0102",
+      "51:0302",
+      "51:0502",
+      "51:0602",
+      "51:0802",
+      "51:0902",
+      "51:1102",
+      "51:1202"
+    ],
+    "meeting_specific_coefficients": [
+      {
+        "coefficient": 1.5285866149071854,
+        "direction": "FF_to_IEM",
+        "estimation_status": "estimated",
+        "hac_lag": 6,
+        "meeting": "51:0102",
+        "p_value": 0.5469244827963059,
+        "rank": 17,
+        "sign": "positive",
+        "standard_error": 2.537599284133986,
+        "t_statistic": 0.6023750969920575,
+        "usable_observation_count": 26
+      },
+      {
+        "coefficient": 1.9665251836080155,
+        "direction": "FF_to_IEM",
+        "estimation_status": "estimated",
+        "hac_lag": 6,
+        "meeting": "51:0302",
+        "p_value": 0.0077960597133050645,
+        "rank": 17,
+        "sign": "positive",
+        "standard_error": 0.7390793235179945,
+        "t_statistic": 2.6607768896137114,
+        "usable_observation_count": 16
+      },
+      {
+        "coefficient": 0.2006875465773277,
+        "direction": "FF_to_IEM",
+        "estimation_status": "estimated",
+        "hac_lag": 6,
+        "meeting": "51:0502",
+        "p_value": 0.34502961224424994,
+        "rank": 17,
+        "sign": "positive",
+        "standard_error": 0.21253103592035447,
+        "t_statistic": 0.9442740713527361,
+        "usable_observation_count": 23
+      },
+      {
+        "coefficient": 0.7312262226340451,
+        "direction": "FF_to_IEM",
+        "estimation_status": "estimated",
+        "hac_lag": 6,
+        "meeting": "51:0602",
+        "p_value": 0.5831043585536074,
+        "rank": 17,
+        "sign": "positive",
+        "standard_error": 1.332273644046749,
+        "t_statistic": 0.5488558794970703,
+        "usable_observation_count": 29
+      },
+      {
+        "coefficient": 0.594487200998803,
+        "direction": "FF_to_IEM",
+        "estimation_status": "estimated",
+        "hac_lag": 6,
+        "meeting": "51:0802",
+        "p_value": 0.015187135071117505,
+        "rank": 17,
+        "sign": "positive",
+        "standard_error": 0.2448580005448125,
+        "t_statistic": 2.427885548669272,
+        "usable_observation_count": 23
+      },
+      {
+        "coefficient": -1.252253556036008,
+        "direction": "FF_to_IEM",
+        "estimation_status": "estimated",
+        "hac_lag": 6,
+        "meeting": "51:0902",
+        "p_value": 0.41923554257524986,
+        "rank": 17,
+        "sign": "negative",
+        "standard_error": 1.5503018582808812,
+        "t_statistic": -0.8077482132573995,
+        "usable_observation_count": 20
+      },
+      {
+        "coefficient": 1.0546130353205516,
+        "direction": "FF_to_IEM",
+        "estimation_status": "estimated",
+        "hac_lag": 6,
+        "meeting": "51:1102",
+        "p_value": 0.36404483011453215,
+        "rank": 17,
+        "sign": "positive",
+        "standard_error": 1.1618715575039045,
+        "t_statistic": 0.907684699319277,
+        "usable_observation_count": 9
+      },
+      {
+        "coefficient": 1.3440464369463854,
+        "direction": "FF_to_IEM",
+        "estimation_status": "estimated",
+        "hac_lag": 6,
+        "meeting": "51:1202",
+        "p_value": 0.001321526224954937,
+        "rank": 17,
+        "sign": "positive",
+        "standard_error": 0.41854129023437475,
+        "t_statistic": 3.211263663362213,
+        "usable_observation_count": 14
+      },
+      {
+        "coefficient": 0.012530534780148254,
+        "direction": "IEM_to_FF",
+        "estimation_status": "estimated",
+        "hac_lag": 6,
+        "meeting": "51:0102",
+        "p_value": 0.009590205097953145,
+        "rank": 17,
+        "sign": "positive",
+        "standard_error": 0.004837549194222305,
+        "t_statistic": 2.590265086113029,
+        "usable_observation_count": 26
+      },
+      {
+        "coefficient": -0.0412806288596808,
+        "direction": "IEM_to_FF",
+        "estimation_status": "estimated",
+        "hac_lag": 6,
+        "meeting": "51:0302",
+        "p_value": 0.06734473210527984,
+        "rank": 17,
+        "sign": "negative",
+        "standard_error": 0.022565533090093307,
+        "t_statistic": -1.8293664366300202,
+        "usable_observation_count": 16
+      },
+      {
+        "coefficient": 0.015109051386590865,
+        "direction": "IEM_to_FF",
+        "estimation_status": "estimated",
+        "hac_lag": 6,
+        "meeting": "51:0502",
+        "p_value": 0.7731644726965446,
+        "rank": 17,
+        "sign": "positive",
+        "standard_error": 0.052418644392568756,
+        "t_statistic": 0.28823811759490736,
+        "usable_observation_count": 23
+      },
+      {
+        "coefficient": 0.0015399235386906799,
+        "direction": "IEM_to_FF",
+        "estimation_status": "estimated",
+        "hac_lag": 6,
+        "meeting": "51:0602",
+        "p_value": 0.8628744992829216,
+        "rank": 17,
+        "sign": "positive",
+        "standard_error": 0.008915917695429553,
+        "t_statistic": 0.17271621287846456,
+        "usable_observation_count": 29
+      },
+      {
+        "coefficient": 0.012779338110500783,
+        "direction": "IEM_to_FF",
+        "estimation_status": "estimated",
+        "hac_lag": 6,
+        "meeting": "51:0802",
+        "p_value": 0.8494134973208481,
+        "rank": 17,
+        "sign": "positive",
+        "standard_error": 0.06730685465107089,
+        "t_statistic": 0.1898668148549036,
+        "usable_observation_count": 23
+      },
+      {
+        "coefficient": 0.021029119278900117,
+        "direction": "IEM_to_FF",
+        "estimation_status": "estimated",
+        "hac_lag": 6,
+        "meeting": "51:0902",
+        "p_value": 0.36246340086786605,
+        "rank": 17,
+        "sign": "positive",
+        "standard_error": 0.023091637907650175,
+        "t_statistic": 0.9106811462660795,
+        "usable_observation_count": 20
+      },
+      {
+        "coefficient": 0.04126284440404954,
+        "direction": "IEM_to_FF",
+        "estimation_status": "estimated",
+        "hac_lag": 6,
+        "meeting": "51:1102",
+        "p_value": 0.18500367912092244,
+        "rank": 17,
+        "sign": "positive",
+        "standard_error": 0.031129902414934102,
+        "t_statistic": 1.3255050996964999,
+        "usable_observation_count": 9
+      },
+      {
+        "coefficient": 0.001077841341490606,
+        "direction": "IEM_to_FF",
+        "estimation_status": "estimated",
+        "hac_lag": 6,
+        "meeting": "51:1202",
+        "p_value": 0.917964684169238,
+        "rank": 17,
+        "sign": "positive",
+        "standard_error": 0.010464698356872264,
+        "t_statistic": 0.10299784138381567,
+        "usable_observation_count": 14
+      }
+    ],
+    "sign_counts": {
+      "FF_to_IEM": {
+        "meeting_count": 8,
+        "positive_count": 7,
+        "positive_proportion": 0.875
+      },
+      "IEM_to_FF": {
+        "meeting_count": 8,
+        "positive_count": 7,
+        "positive_proportion": 0.875
+      }
+    },
+    "stability_decision": {
+      "descriptive_statement": "pooled directional result is heterogeneous and potentially episode-specific",
+      "not_a_significance_test": true,
+      "rule": "FF_to_IEM positive in at least 6 of 8 meetings and IEM_to_FF positive in fewer than 6 of 8 meetings",
+      "supported": false
+    }
+  }
+}
