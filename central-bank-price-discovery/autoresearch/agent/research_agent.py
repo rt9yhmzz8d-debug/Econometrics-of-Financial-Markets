@@ -152,13 +152,18 @@ def validate_selected_record(path):
 def executor_for(record):
     exp = record["selected_experiment"]["experiment_id"]
 
-    # Experiment-specific executors remain explicit.
-    # The orchestrator must never silently substitute a method.
-    candidate = HERE / (
-        "executor_" + exp.split("_")[1] + ".py"
-    )
+    # Explicit routing prevents one experiment from accidentally being
+    # executed by another experiment's frozen implementation.
+    executor_map = {
+        "agent_007_joint_symmetric_trim":
+            HERE / "executor_007.py",
+        "agent_007_meeting_concentration":
+            HERE / "executor_007_meeting_concentration.py",
+    }
 
-    if candidate.exists():
+    candidate = executor_map.get(exp)
+
+    if candidate is not None and candidate.exists():
         return candidate
 
     raise SystemExit(
