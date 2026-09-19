@@ -68,6 +68,48 @@ def preserve_evidence(path):
     run(["git", "add", "-f", str(path.relative_to(REPO))])
 
 
+def pending_preregistered_run():
+    """Return newest genuinely pending preregistration, if one exists."""
+    records = []
+
+    for path in RUNS.glob("*.json"):
+        try:
+            record = load(path)
+        except Exception:
+            continue
+
+        exp = (
+            record.get("selected_experiment")
+            or record.get("proposal")
+            or {}
+        ).get("experiment_id")
+
+        if exp:
+            records.append((path, record, exp))
+
+    executed_ids = {
+        exp
+        for _, record, exp in records
+        if record.get("status") == "executed"
+    }
+
+    pending = [
+        (path, record)
+        for path, record, exp in records
+        if record.get("status") == "selected_not_executed"
+        and exp not in executed_ids
+    ]
+
+    if not pending:
+        return None
+
+    pending.sort(
+        key=lambda item: item[1].get("created_at_utc", "")
+    )
+
+    return pending[-1][0]
+
+
 def select_next():
     before = set(RUNS.glob("*.json"))
 
@@ -167,21 +209,32 @@ def cycle(dry_run=False):
     print("=== AUTONOMOUS CYCLE ===")
     print("starting commit:", start[:12])
 
-    selected = select_next()
-    record = validate_selected_record(selected)
+    selected = pending_preregistered_run()
+
+    if selected is not None:
+        print("pending preregistration detected:", selected.relative_to(REPO))
+        print("action: RESUME EXISTING FROZEN DECISION")
+        record = validate_selected_record(selected)
+        newly_selected = False
+    else:
+        selected = select_next()
+        record = validate_selected_record(selected)
+        newly_selected = True
 
     exp = record["selected_experiment"]["experiment_id"]
 
     print("selected:", exp)
     print("record:", selected.relative_to(REPO))
 
-    # Freeze the machine's decision before any result exists.
-    freeze(
-        selected,
-        f"Preregister autonomously selected {exp}",
-    )
-
-    print("preregistration: FROZEN")
+    if newly_selected:
+        # Freeze the machine's decision before any result exists.
+        freeze(
+            selected,
+            f"Preregister autonomously selected {exp}",
+        )
+        print("preregistration: FROZEN")
+    else:
+        print("preregistration: ALREADY FROZEN")
 
     if dry_run:
         print("DRY RUN: stopping before execution")
