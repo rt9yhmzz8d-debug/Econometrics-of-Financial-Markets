@@ -159,6 +159,8 @@ def executor_for(record):
             HERE / "executor_007.py",
         "agent_007_meeting_concentration":
             HERE / "executor_007_meeting_concentration.py",
+        "agent_007_sign_stability_curve":
+            HERE / "executor_007_sign_stability_curve.py",
     }
 
     candidate = executor_map.get(exp)
