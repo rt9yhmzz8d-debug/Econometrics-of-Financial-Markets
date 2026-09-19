@@ -1,0 +1,64 @@
+{
+  "execution_requirements": [
+    "Run locally using the frozen baseline implementation and read-only validated inputs.",
+    "Create a new immutable experiment record containing code or an exact command, parameters, baseline reproduction output, offset-specific outputs, and any errors.",
+    "Verify that every shifted observation remains within its original meeting.",
+    "Report all five offsets for both equations, including offsets with insufficient observations or estimation failure.",
+    "Do not overwrite evidence from experiments 002 through 007 or any existing experiment-008 artifacts."
+  ],
+  "expected_information_gain": "The experiment will show whether directional estimates are concentrated at plausible temporal offsets, whether apparent directionality is contemporaneous only, and whether similar coefficients arise when the predictor is chronologically too early or too late. This provides timing information not supplied by coefficient stability or permutation evidence alone.",
+  "experiment_id": "agent_009_lead_lag_timing_profile",
+  "falsifiable_hypothesis": "If Fed Funds futures incorporate information before the IEM, the FF-to-IEM coefficient should be concentrated when the FF revision occurs contemporaneously with or before the IEM revision, while coefficients using future FF revisions as predictors should not display the same directional pattern. The reverse IEM-to-FF equation should not exhibit an equivalent timing profile. The hypothesis is rejected if the profile is flat, dominated by future-predictor offsets, or symmetric across directions.",
+  "interpretation_if_not_supported": "A flat, symmetric, reverse-direction, or future-predictor-dominated profile would weaken the temporal price-discovery interpretation and support treating the baseline coefficient as a fragile or nonspecific association. Such a result would be retained as adverse evidence rather than used to revise specifications.",
+  "interpretation_if_supported": "A profile concentrated at contemporaneous or past FF revisions for the IEM equation, combined with weak or absent future-predictor and reverse-direction profiles, would strengthen the interpretation that the association is temporally consistent with FF futures leading IEM revisions. It would still not establish independent confirmation or causal price discovery because the evidence covers only eight meetings.",
+  "limitations": [
+    "Offset-specific samples differ because observations at meeting edges are unavailable.",
+    "The eight-meeting design provides limited independent temporal clusters.",
+    "Adjacent revisions may overlap in information and are not independent observations.",
+    "Lead-lag regressions remain observational and cannot rule out common news or measurement-timing effects.",
+    "A contemporaneous profile cannot by itself distinguish rapid causal transmission from simultaneous response to common information.",
+    "HAC standard errors with only eight meetings may provide imperfect finite-sample inference."
+  ],
+  "method": {
+    "analysis_type": "Pre-specified lead-lag sensitivity analysis using the baseline fixed-effects VAR-style regressions",
+    "inputs": [
+      "Validated historical matched price and revision data used by the frozen baseline",
+      "The exact baseline row-construction and VAR specification from commit 8ecd279",
+      "Meeting identifiers and within-meeting observation ordering"
+    ],
+    "parameters": {
+      "covariance": "HAC with bandwidth 6, exactly as in the baseline",
+      "fixed_effects": "Meeting fixed effects exactly as in the baseline",
+      "inference_role": "Descriptive timing-profile comparison; no p-value-based model selection",
+      "offset_convention": "Predictor is revision at t-k; k=0 contemporaneous, k>0 predictor precedes outcome, k<0 predictor follows outcome",
+      "offsets": [
+        -2,
+        -1,
+        0,
+        1,
+        2
+      ]
+    },
+    "steps": [
+      "Reproduce the frozen baseline before conducting any offset analysis, verifying 201 matched levels, 179 valid revisions, 160 usable VAR rows, 8 meetings, and baseline coefficients of 0.7445355822620687 for FF-to-IEM and 0.02009629893361374 for IEM-to-FF.",
+      "For each offset k in {-2, -1, 0, 1, 2}, replace only the baseline cross-market revision regressor with the revision from time t-k, using the convention that k=0 is contemporaneous, k>0 uses a past predictor, and k<0 uses a future predictor.",
+      "Estimate both directional equations for every pre-specified offset, retaining the baseline own-market controls, meeting fixed effects, estimator, and HAC(6) covariance convention.",
+      "Use only observations for which the shifted predictor exists within the same FOMC meeting; do not bridge excluded temporal gaps or meeting boundaries.",
+      "Report the coefficient, standard error, sample size, and meeting coverage for every offset in both directions, together with the complete coefficient profile and the difference between the two directional profiles.",
+      "Do not choose an offset, equation, or subset after inspecting results, and retain all failed or non-estimable offsets in the experiment record."
+    ]
+  },
+  "motivation": "Existing permutation, circular-shift, influence, trimming, concentration, and specification analyses assess robustness but do not directly identify the temporal offset at which the cross-market association appears. A fixed lead-lag profile can distinguish a plausible timing relationship from an association that is insensitive to ordering, without selecting offsets based on favorable results.",
+  "protected_invariants": [
+    "160-row baseline reproduced before analysis",
+    "validated data read only",
+    "meeting boundaries preserved",
+    "temporal gaps are never bridged",
+    "all pre-specified offsets and null results retained",
+    "no significance optimisation",
+    "baseline estimator and controls unchanged except for the stated cross-market offset",
+    "eight-meeting exercise remains a robustness stress test rather than independent confirmation"
+  ],
+  "research_question": "Is the estimated directional relationship localized to economically plausible timing offsets, or is it equally present at leads and lags consistent with nonspecific contemporaneous association?",
+  "title": "Pre-specified cross-market lead-lag timing profile"
+}
