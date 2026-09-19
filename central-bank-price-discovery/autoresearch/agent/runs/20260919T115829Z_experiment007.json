@@ -1,0 +1,140 @@
+{
+  "run_id": "20260919T115829Z",
+  "created_at_utc": "2026-09-19T11:58:29.759786+00:00",
+  "status": "selected_not_executed",
+  "branch": "autoresearch-agent-006",
+  "starting_commit": "86798490f5abfdd22716f2b84f3089d04e792968",
+  "parent_checkpoint": "6ae93a3",
+  "selection_policy": {
+    "optimise_for_significance": false,
+    "p_values_used_as_selection_reward": false,
+    "null_results_admissible": true,
+    "validated_data_read_only": true,
+    "selection_basis": "methodological information gain and robustness value"
+  },
+  "known_findings": {
+    "baseline_rows": 160,
+    "multiverse_specifications": 12,
+    "FF_to_IEM_sign_preserved_under_trim10": true,
+    "IEM_to_FF_sign_preserved_under_trim10": false,
+    "IEM_to_FF_trim10_beta": -0.0012094080238816043,
+    "FF_to_IEM_trim10_beta": 0.6354063587897061
+  },
+  "candidate_experiments": [
+    {
+      "experiment_id": "agent_007_joint_symmetric_trim",
+      "title": "Symmetric joint-influence trimming",
+      "research_question": "Does the directional pattern survive when the same pre-specified observations are removed from both equations?",
+      "motivation": "Experiment 006 ranked influential observations separately for each equation. A common deletion set tests whether that asymmetry itself drives the robustness result.",
+      "design": {
+        "ranking_rule": "maximum normalised absolute leave-one-out coefficient change across the two directions",
+        "trim_counts": [
+          1,
+          3,
+          5,
+          10
+        ],
+        "same_rows_removed_from_both_equations": true,
+        "hac_lag": 6,
+        "meeting_fixed_effects": true,
+        "source": "influence_rows_004.csv"
+      },
+      "independence": 3,
+      "addresses_known_fragility": 5,
+      "uses_frozen_data": 5,
+      "interpretability": 5,
+      "reproducibility": 5,
+      "methodological_priority_score": 23
+    },
+    {
+      "experiment_id": "agent_007_meeting_concentration",
+      "title": "Influence concentration by FOMC meeting",
+      "research_question": "Are the influential observations disproportionately concentrated in particular meetings?",
+      "motivation": "Several influential rows appear in the November 2002 meeting. Quantifying concentration can distinguish observation fragility from meeting-level dependence.",
+      "design": {
+        "analysis": "rank concentration of top influence observations by meeting family",
+        "top_k": [
+          5,
+          10,
+          20
+        ],
+        "source": "influence_rows_004.csv",
+        "no_refitting_for_significance": true
+      },
+      "independence": 4,
+      "addresses_known_fragility": 4,
+      "uses_frozen_data": 5,
+      "interpretability": 5,
+      "reproducibility": 5,
+      "methodological_priority_score": 23
+    },
+    {
+      "experiment_id": "agent_007_sign_stability_curve",
+      "title": "Full influence-trim stability curve",
+      "research_question": "At what deletion depth do the directional coefficients change sign or materially depart from baseline?",
+      "motivation": "Experiment 006 used four preregistered deletion depths. A complete deterministic stability curve can reveal whether the trim-10 reversal is abrupt or gradual.",
+      "design": {
+        "trim_counts": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "ranking_rule": "frozen experiment-004 influence ordering",
+        "hac_lag": 6,
+        "meeting_fixed_effects": true,
+        "report_all_depths": true
+      },
+      "independence": 3,
+      "addresses_known_fragility": 5,
+      "uses_frozen_data": 5,
+      "interpretability": 4,
+      "reproducibility": 5,
+      "methodological_priority_score": 22
+    }
+  ],
+  "selected_experiment": {
+    "experiment_id": "agent_007_joint_symmetric_trim",
+    "title": "Symmetric joint-influence trimming",
+    "research_question": "Does the directional pattern survive when the same pre-specified observations are removed from both equations?",
+    "motivation": "Experiment 006 ranked influential observations separately for each equation. A common deletion set tests whether that asymmetry itself drives the robustness result.",
+    "design": {
+      "ranking_rule": "maximum normalised absolute leave-one-out coefficient change across the two directions",
+      "trim_counts": [
+        1,
+        3,
+        5,
+        10
+      ],
+      "same_rows_removed_from_both_equations": true,
+      "hac_lag": 6,
+      "meeting_fixed_effects": true,
+      "source": "influence_rows_004.csv"
+    },
+    "independence": 3,
+    "addresses_known_fragility": 5,
+    "uses_frozen_data": 5,
+    "interpretability": 5,
+    "reproducibility": 5,
+    "methodological_priority_score": 23
+  },
+  "execution": null,
+  "evaluation": null
+}
