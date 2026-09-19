@@ -55,7 +55,6 @@ def build_baseline():
         rows = list(csv.DictReader(f))
 
     blocks = defaultdict(list)
-
     for r in rows:
         blocks[r["family"]].append(r)
 
@@ -66,36 +65,22 @@ def build_baseline():
         b = blocks[fam]
 
         for i, cur in enumerate(b):
-            if i == 0:
+            if cur["var_lag_valid"] != "True":
                 continue
 
-            prev = b[i - 1]
+            lag = b[i - 1]
 
             obs.append({
                 "family": fam,
                 "date": cur["date"],
-                "iem_revision": (
-                    float(cur["iem_probability"])
-                    - float(prev["iem_probability"])
-                ),
-                "ff_revision": (
-                    float(cur["ff_probability"])
-                    - float(prev["ff_probability"])
-                ),
-                "lag_iem_revision": (
-                    float(prev["iem_probability"])
-                    - float(b[i - 2]["iem_probability"])
-                    if i >= 2 else 0.0
-                ),
-                "lag_ff_revision": (
-                    float(prev["ff_probability"])
-                    - float(b[i - 2]["ff_probability"])
-                    if i >= 2 else 0.0
-                ),
+                "lag_iem": float(lag["delta_iem"]),
+                "lag_ff": float(lag["delta_ff_bp"]),
+                "cur_iem": float(cur["delta_iem"]),
+                "cur_ff": float(cur["delta_ff_bp"]),
             })
 
+    assert len(obs) == 160
     return obs, families
-
 
 def estimate(obs, families):
     family_index = {fam: i for i, fam in enumerate(families)}
