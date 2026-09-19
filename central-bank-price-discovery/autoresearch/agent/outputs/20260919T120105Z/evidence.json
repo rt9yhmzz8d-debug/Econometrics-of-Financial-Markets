@@ -1,0 +1,300 @@
+{
+  "experiment": "agent_007_meeting_concentration",
+  "run_id": "20260919T120105Z",
+  "preregistered_run": "20260919T120105Z_experiment007.json",
+  "input_rows": 160,
+  "design": {
+    "analysis": "rank concentration of top influence observations by meeting family",
+    "top_k": [
+      5,
+      10,
+      20
+    ],
+    "source": "influence_rows_004.csv",
+    "no_refitting_for_significance": true
+  },
+  "results": [
+    {
+      "top_k": 5,
+      "meeting_counts": {
+        "51:0102": 1,
+        "51:1102": 4
+      },
+      "largest_meeting_count": 4,
+      "largest_meeting_share": 0.8,
+      "rows": [
+        {
+          "family": "51:1102",
+          "date": "2002-10-07",
+          "ff_to_iem_abs_change": 0.44431013673286546,
+          "iem_to_ff_abs_change": 0.0035765304805623066,
+          "joint_influence": 0.44431013673286546
+        },
+        {
+          "family": "51:1102",
+          "date": "2002-11-01",
+          "ff_to_iem_abs_change": 0.3065643045860142,
+          "iem_to_ff_abs_change": 0.006123272555989314,
+          "joint_influence": 0.3065643045860142
+        },
+        {
+          "family": "51:0102",
+          "date": "2002-01-14",
+          "ff_to_iem_abs_change": 0.21495495291346067,
+          "iem_to_ff_abs_change": 0.0025375811490078275,
+          "joint_influence": 0.21495495291346067
+        },
+        {
+          "family": "51:1102",
+          "date": "2002-10-11",
+          "ff_to_iem_abs_change": 0.20616639758603827,
+          "iem_to_ff_abs_change": 0.0003719999020301984,
+          "joint_influence": 0.20616639758603827
+        },
+        {
+          "family": "51:1102",
+          "date": "2002-10-08",
+          "ff_to_iem_abs_change": 0.17105402196136543,
+          "iem_to_ff_abs_change": 0.008774961551332606,
+          "joint_influence": 0.17105402196136543
+        }
+      ]
+    },
+    {
+      "top_k": 10,
+      "meeting_counts": {
+        "51:0102": 5,
+        "51:0802": 1,
+        "51:1102": 4
+      },
+      "largest_meeting_count": 5,
+      "largest_meeting_share": 0.5,
+      "rows": [
+        {
+          "family": "51:1102",
+          "date": "2002-10-07",
+          "ff_to_iem_abs_change": 0.44431013673286546,
+          "iem_to_ff_abs_change": 0.0035765304805623066,
+          "joint_influence": 0.44431013673286546
+        },
+        {
+          "family": "51:1102",
+          "date": "2002-11-01",
+          "ff_to_iem_abs_change": 0.3065643045860142,
+          "iem_to_ff_abs_change": 0.006123272555989314,
+          "joint_influence": 0.3065643045860142
+        },
+        {
+          "family": "51:0102",
+          "date": "2002-01-14",
+          "ff_to_iem_abs_change": 0.21495495291346067,
+          "iem_to_ff_abs_change": 0.0025375811490078275,
+          "joint_influence": 0.21495495291346067
+        },
+        {
+          "family": "51:1102",
+          "date": "2002-10-11",
+          "ff_to_iem_abs_change": 0.20616639758603827,
+          "iem_to_ff_abs_change": 0.0003719999020301984,
+          "joint_influence": 0.20616639758603827
+        },
+        {
+          "family": "51:1102",
+          "date": "2002-10-08",
+          "ff_to_iem_abs_change": 0.17105402196136543,
+          "iem_to_ff_abs_change": 0.008774961551332606,
+          "joint_influence": 0.17105402196136543
+        },
+        {
+          "family": "51:0102",
+          "date": "2002-01-24",
+          "ff_to_iem_abs_change": 0.10596726539966161,
+          "iem_to_ff_abs_change": 1.3276847984501627e-05,
+          "joint_influence": 0.10596726539966161
+        },
+        {
+          "family": "51:0102",
+          "date": "2002-01-29",
+          "ff_to_iem_abs_change": 0.10466473706141843,
+          "iem_to_ff_abs_change": 0.0008999843521164813,
+          "joint_influence": 0.10466473706141843
+        },
+        {
+          "family": "51:0102",
+          "date": "2002-01-17",
+          "ff_to_iem_abs_change": 0.10001401112434294,
+          "iem_to_ff_abs_change": 0.0002668213280762645,
+          "joint_influence": 0.10001401112434294
+        },
+        {
+          "family": "51:0802",
+          "date": "2002-07-30",
+          "ff_to_iem_abs_change": 0.09164706007808221,
+          "iem_to_ff_abs_change": 9.322648813917325e-05,
+          "joint_influence": 0.09164706007808221
+        },
+        {
+          "family": "51:0102",
+          "date": "2002-01-18",
+          "ff_to_iem_abs_change": 0.08293640467212693,
+          "iem_to_ff_abs_change": 0.003492411811424404,
+          "joint_influence": 0.08293640467212693
+        }
+      ]
+    },
+    {
+      "top_k": 20,
+      "meeting_counts": {
+        "51:0102": 10,
+        "51:0802": 2,
+        "51:0902": 1,
+        "51:1102": 7
+      },
+      "largest_meeting_count": 10,
+      "largest_meeting_share": 0.5,
+      "rows": [
+        {
+          "family": "51:1102",
+          "date": "2002-10-07",
+          "ff_to_iem_abs_change": 0.44431013673286546,
+          "iem_to_ff_abs_change": 0.0035765304805623066,
+          "joint_influence": 0.44431013673286546
+        },
+        {
+          "family": "51:1102",
+          "date": "2002-11-01",
+          "ff_to_iem_abs_change": 0.3065643045860142,
+          "iem_to_ff_abs_change": 0.006123272555989314,
+          "joint_influence": 0.3065643045860142
+        },
+        {
+          "family": "51:0102",
+          "date": "2002-01-14",
+          "ff_to_iem_abs_change": 0.21495495291346067,
+          "iem_to_ff_abs_change": 0.0025375811490078275,
+          "joint_influence": 0.21495495291346067
+        },
+        {
+          "family": "51:1102",
+          "date": "2002-10-11",
+          "ff_to_iem_abs_change": 0.20616639758603827,
+          "iem_to_ff_abs_change": 0.0003719999020301984,
+          "joint_influence": 0.20616639758603827
+        },
+        {
+          "family": "51:1102",
+          "date": "2002-10-08",
+          "ff_to_iem_abs_change": 0.17105402196136543,
+          "iem_to_ff_abs_change": 0.008774961551332606,
+          "joint_influence": 0.17105402196136543
+        },
+        {
+          "family": "51:0102",
+          "date": "2002-01-24",
+          "ff_to_iem_abs_change": 0.10596726539966161,
+          "iem_to_ff_abs_change": 1.3276847984501627e-05,
+          "joint_influence": 0.10596726539966161
+        },
+        {
+          "family": "51:0102",
+          "date": "2002-01-29",
+          "ff_to_iem_abs_change": 0.10466473706141843,
+          "iem_to_ff_abs_change": 0.0008999843521164813,
+          "joint_influence": 0.10466473706141843
+        },
+        {
+          "family": "51:0102",
+          "date": "2002-01-17",
+          "ff_to_iem_abs_change": 0.10001401112434294,
+          "iem_to_ff_abs_change": 0.0002668213280762645,
+          "joint_influence": 0.10001401112434294
+        },
+        {
+          "family": "51:0802",
+          "date": "2002-07-30",
+          "ff_to_iem_abs_change": 0.09164706007808221,
+          "iem_to_ff_abs_change": 9.322648813917325e-05,
+          "joint_influence": 0.09164706007808221
+        },
+        {
+          "family": "51:0102",
+          "date": "2002-01-18",
+          "ff_to_iem_abs_change": 0.08293640467212693,
+          "iem_to_ff_abs_change": 0.003492411811424404,
+          "joint_influence": 0.08293640467212693
+        },
+        {
+          "family": "51:1102",
+          "date": "2002-10-10",
+          "ff_to_iem_abs_change": 0.07993390694878288,
+          "iem_to_ff_abs_change": 0.004098285442466328,
+          "joint_influence": 0.07993390694878288
+        },
+        {
+          "family": "51:0102",
+          "date": "2002-01-22",
+          "ff_to_iem_abs_change": 0.06779634652632716,
+          "iem_to_ff_abs_change": 0.00019401024861212535,
+          "joint_influence": 0.06779634652632716
+        },
+        {
+          "family": "51:1102",
+          "date": "2002-11-04",
+          "ff_to_iem_abs_change": 0.06746867642073329,
+          "iem_to_ff_abs_change": 0.003913352131737827,
+          "joint_influence": 0.06746867642073329
+        },
+        {
+          "family": "51:1102",
+          "date": "2002-10-28",
+          "ff_to_iem_abs_change": 0.06576896309656866,
+          "iem_to_ff_abs_change": 0.006766263445947173,
+          "joint_influence": 0.06576896309656866
+        },
+        {
+          "family": "51:0102",
+          "date": "2002-01-07",
+          "ff_to_iem_abs_change": 0.04894417479290103,
+          "iem_to_ff_abs_change": 6.304818292618072e-05,
+          "joint_influence": 0.04894417479290103
+        },
+        {
+          "family": "51:0102",
+          "date": "2002-01-28",
+          "ff_to_iem_abs_change": 0.04461419463204408,
+          "iem_to_ff_abs_change": 0.001406960454922404,
+          "joint_influence": 0.04461419463204408
+        },
+        {
+          "family": "51:0802",
+          "date": "2002-07-29",
+          "ff_to_iem_abs_change": 0.04315521193245031,
+          "iem_to_ff_abs_change": 0.004812975643574186,
+          "joint_influence": 0.04315521193245031
+        },
+        {
+          "family": "51:0902",
+          "date": "2002-09-09",
+          "ff_to_iem_abs_change": 0.04312952582748719,
+          "iem_to_ff_abs_change": 0.0003493895834925792,
+          "joint_influence": 0.04312952582748719
+        },
+        {
+          "family": "51:0102",
+          "date": "2002-01-23",
+          "ff_to_iem_abs_change": 0.036553819919487585,
+          "iem_to_ff_abs_change": 9.782422769998717e-05,
+          "joint_influence": 0.036553819919487585
+        },
+        {
+          "family": "51:0102",
+          "date": "2002-01-11",
+          "ff_to_iem_abs_change": 0.035651868263208986,
+          "iem_to_ff_abs_change": 2.623729061245611e-06,
+          "joint_influence": 0.035651868263208986
+        }
+      ]
+    }
+  ],
+  "interpretation_rule": "Report concentration for every preregistered top-k depth. No model refitting and no significance-based result selection."
+}
