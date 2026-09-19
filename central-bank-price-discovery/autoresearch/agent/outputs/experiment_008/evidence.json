@@ -1,0 +1,174 @@
+{
+  "experiment_id": "agent_008_lead_lag_symmetry",
+  "status": "executed",
+  "proposal": "central-bank-price-discovery/autoresearch/agent/experiments/20260919T123700Z_ai_proposal.json",
+  "source_panel": "central-bank-price-discovery/validation/external/barchart/processed/historical_panel_2002_gap_safe.csv",
+  "protected_validation_data_modified": false,
+  "baseline_reproduced": true,
+  "baseline": {
+    "n": 160,
+    "meetings": 8,
+    "FF_to_IEM": {
+      "beta": 0.744535582262069,
+      "se": 0.5040536181243014,
+      "t": 1.4770959983040215,
+      "p": 0.1396499060896291
+    },
+    "IEM_to_FF": {
+      "beta": 0.020096298933613744,
+      "se": 0.00981788065103271,
+      "t": 2.0469080494984304,
+      "p": 0.04066711360635767
+    }
+  },
+  "offsets_executed": [
+    1,
+    2,
+    3
+  ],
+  "hac_lag": 6,
+  "meeting_fixed_effects": true,
+  "all_prespecified_offsets_reported": true,
+  "result_selection_performed": false,
+  "null_results_recorded": true,
+  "results": [
+    {
+      "offset": 1,
+      "direction": "FF_to_IEM",
+      "lag": {
+        "n": 160,
+        "meetings": 8,
+        "beta": 0.8439616310054057,
+        "se": 0.598012151230755,
+        "t": 1.4112783983878383,
+        "p": 0.15816254136720295,
+        "sign": "positive"
+      },
+      "lead": {
+        "n": 160,
+        "meetings": 8,
+        "beta": 1.214542710003081,
+        "se": 0.6109455201932885,
+        "t": 1.9879722002361664,
+        "p": 0.04681476462513712,
+        "sign": "positive"
+      },
+      "lag_minus_lead_beta": -0.37058107899767534
+    },
+    {
+      "offset": 1,
+      "direction": "IEM_to_FF",
+      "lag": {
+        "n": 160,
+        "meetings": 8,
+        "beta": 0.02525595683315988,
+        "se": 0.01192606726096349,
+        "t": 2.117710413710973,
+        "p": 0.034199600377789095,
+        "sign": "positive"
+      },
+      "lead": {
+        "n": 160,
+        "meetings": 8,
+        "beta": 0.01909119178220268,
+        "se": 0.016511664335069686,
+        "t": 1.1562245570638356,
+        "p": 0.24758931765034348,
+        "sign": "positive"
+      },
+      "lag_minus_lead_beta": 0.006164765050957199
+    },
+    {
+      "offset": 2,
+      "direction": "FF_to_IEM",
+      "lag": {
+        "n": 145,
+        "meetings": 8,
+        "beta": 0.0051509757699535474,
+        "se": 0.3475204920701054,
+        "t": 0.01482207779826244,
+        "p": 0.9881741259795749,
+        "sign": "positive"
+      },
+      "lead": {
+        "n": 145,
+        "meetings": 8,
+        "beta": 2.192527419299788,
+        "se": 0.9459078336620157,
+        "t": 2.3179080892179234,
+        "p": 0.02045431672819343,
+        "sign": "positive"
+      },
+      "lag_minus_lead_beta": -2.187376443529834
+    },
+    {
+      "offset": 2,
+      "direction": "IEM_to_FF",
+      "lag": {
+        "n": 145,
+        "meetings": 8,
+        "beta": 0.040929702958360105,
+        "se": 0.023318716298692435,
+        "t": 1.7552296804886802,
+        "p": 0.07922002900404393,
+        "sign": "positive"
+      },
+      "lead": {
+        "n": 145,
+        "meetings": 8,
+        "beta": 0.00010881303543586705,
+        "se": 0.00734394875786333,
+        "t": 0.0148166931746846,
+        "p": 0.9881784218158541,
+        "sign": "positive"
+      },
+      "lag_minus_lead_beta": 0.040820889922924236
+    },
+    {
+      "offset": 3,
+      "direction": "FF_to_IEM",
+      "lag": {
+        "n": 133,
+        "meetings": 8,
+        "beta": -0.26784417745689715,
+        "se": 0.6502290360367938,
+        "t": -0.41192281890306254,
+        "p": 0.6803959948311636,
+        "sign": "negative"
+      },
+      "lead": {
+        "n": 133,
+        "meetings": 8,
+        "beta": -0.4790162992299196,
+        "se": 1.1297844538633426,
+        "t": -0.42398910481721047,
+        "p": 0.6715737590908553,
+        "sign": "negative"
+      },
+      "lag_minus_lead_beta": 0.21117212177302247
+    },
+    {
+      "offset": 3,
+      "direction": "IEM_to_FF",
+      "lag": {
+        "n": 133,
+        "meetings": 8,
+        "beta": -0.008510755010663257,
+        "se": 0.02351255494794008,
+        "t": -0.361966406011903,
+        "p": 0.7173771347588952,
+        "sign": "negative"
+      },
+      "lead": {
+        "n": 133,
+        "meetings": 8,
+        "beta": -0.003751453490188189,
+        "se": 0.008745069313757804,
+        "t": -0.42897927455947965,
+        "p": 0.667938307482526,
+        "sign": "negative"
+      },
+      "lag_minus_lead_beta": -0.004759301520475068
+    }
+  ]
+}
