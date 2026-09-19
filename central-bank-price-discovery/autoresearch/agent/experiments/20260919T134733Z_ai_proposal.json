@@ -1,0 +1,55 @@
+{
+  "execution_requirements": [
+    "Run locally using the frozen validated dataset and existing baseline-construction code.",
+    "Record the baseline reproduction output before any fold is estimated.",
+    "Pre-register the fold order, unrestricted and restricted regressors, forecast horizon, unseen-meeting fixed-effect convention, and loss metrics before execution.",
+    "Write a new reproducible run record under central-bank-price-discovery/autoresearch/ without modifying validation files or overwriting prior evidence.",
+    "Report all eight fold results and aggregate summaries, including null and adverse outcomes."
+  ],
+  "expected_information_gain": "The experiment will distinguish an in-sample directional association from a relationship with cross-meeting predictive stability. It can show whether the FF-to-IEM pattern survives when an entire meeting is unseen, whether any apparent direction is concentrated in a few meetings, and whether adding cross-market lags improves forecasting beyond own-market dynamics. It may provide useful negative evidence even if all incremental forecasting effects are null or unstable.",
+  "experiment_id": "agent_008_blocked_crossfit_prediction",
+  "falsifiable_hypothesis": "When each FOMC meeting is held out in turn, the unrestricted VAR containing both markets' lagged revisions will produce a positive out-of-sample incremental forecasting contribution from lagged Fed Funds futures revisions to IEM revisions, and this contribution will be at least as consistent across meetings as the corresponding IEM-to-Fed-Funds contribution.",
+  "interpretation_if_not_supported": "Null, mixed, or adverse out-of-sample results would indicate that the baseline coefficient pattern has limited cross-meeting predictive generalization and may depend on particular meetings or in-sample fit. This would strengthen the current interpretation of the historical analysis as a stress test and would weaken claims of stable temporal price discovery.",
+  "interpretation_if_supported": "Consistent positive out-of-sample incremental forecasting contributions from Fed Funds futures lags, especially if they exceed the corresponding IEM-to-Fed-Funds contributions across most held-out meetings, would strengthen the claim that the baseline directional pattern is not solely an in-sample artifact. It would still constitute robustness evidence, not independent confirmation, because the exercise uses the same eight historical meetings and the same source data.",
+  "limitations": [
+    "Only eight meetings are available, so cross-validation estimates will be noisy and cannot establish broad external validity.",
+    "Holding out a meeting substantially reduces the training sample and may make coefficient estimates unstable.",
+    "Meeting fixed effects require a pre-specified treatment for an unseen meeting; the implementation must use only training information and document that convention.",
+    "One-step-ahead forecasting evaluates predictive usefulness, not structural causality or economic welfare.",
+    "The experiment uses the same historical source data and therefore is not independent confirmation.",
+    "Forecast loss comparisons may be affected by scale, heteroskedasticity, and the limited number of held-out observations per meeting."
+  ],
+  "method": {
+    "analysis_type": "Deterministic leave-one-meeting-out out-of-sample forecasting comparison",
+    "inputs": [
+      "The validated historical analysis dataset used to construct the 160-row baseline VAR sample",
+      "The validated meeting identifier and chronological ordering for all 8 meetings",
+      "The exact baseline VAR regressors, lag structure, transformations, and dependent variables",
+      "The baseline restricted specifications omitting cross-market lagged revisions"
+    ],
+    "parameters": {},
+    "steps": [
+      "Reproduce the baseline sample and estimator first, verifying 160 usable VAR rows across 8 meetings and the baseline coefficients FF -> IEM = 0.7445355822620687 and IEM -> FF = 0.02009629893361374 before running cross-validation.",
+      "Sort the eight meetings chronologically and define eight deterministic folds, with one complete meeting held out per fold; never split a meeting or construct observations across meeting gaps.",
+      "For each fold, estimate on the other seven meetings the unrestricted baseline VAR and two direction-specific restricted models: one excluding lagged Fed Funds futures revisions from the IEM equation and one excluding lagged IEM revisions from the Fed Funds futures equation.",
+      "Use only training-fold observations to estimate coefficients and nuisance terms. For the held-out meeting, generate one-step-ahead predictions using the observed lagged values available within that meeting and the pre-specified training estimates; do not use held-out outcomes when fitting the model.",
+      "For each held-out meeting and each equation, record squared-error and absolute-error loss for the unrestricted model and its corresponding restricted model. Compute the pre-specified incremental loss reduction from adding the cross-market lags.",
+      "Report every fold, the unweighted mean across meetings, the median, the number of folds with positive incremental improvement, and the paired difference between directional improvements. Do not rank or select folds or specifications by outcome.",
+      "Also report the leave-one-meeting-out coefficient estimates for both directional cross-market terms as descriptive stability diagnostics, without using their p-values for evaluation."
+    ]
+  },
+  "motivation": "Existing analyses assess temporal falsification, circular shifts, observation influence, specification sensitivity, and meeting concentration, but they do not directly test whether the directional relationship generalizes across entire meetings. Blocked cross-fitting provides a falsification-oriented assessment of predictive transportability while preserving meeting boundaries and avoiding arbitrary observation deletion. It can reveal whether the baseline directional pattern is only an in-sample artifact, without treating nominal significance as the objective.",
+  "protected_invariants": [
+    "160-row baseline reproduced before analysis",
+    "Validated data read only",
+    "Meeting boundaries preserved",
+    "No observations manufactured across excluded temporal gaps",
+    "All eight held-out meetings reported",
+    "No arbitrary data deletion; complete-meeting folds are fixed in advance",
+    "Null and adverse results retained",
+    "No significance optimisation",
+    "The eight-meeting exercise remains a robustness stress test rather than independent confirmation"
+  ],
+  "research_question": "Does the estimated cross-market lead-lag relationship generalize to meetings not used for estimation, rather than reflecting in-sample fit concentrated in particular meetings?",
+  "title": "Blocked leave-one-meeting-out predictive generalization"
+}
