@@ -236,6 +236,13 @@ Rules:
 10. Do not execute anything.
 11. Do not change the research question.
 12. Do not use p-values as an optimisation criterion.
+13. The "forbidden_actions" array MUST explicitly contain at least one
+    entry using the literal word "significance" and at least one entry
+    using the literal word "validation".
+14. In particular, forbidden_actions must explicitly prohibit:
+    - selecting, adding, dropping or changing specifications based on
+      statistical significance;
+    - modifying files or source data under validation/.
 """.strip()
 
 
